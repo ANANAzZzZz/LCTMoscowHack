@@ -1,2 +1,14 @@
-D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\MoscowHackApplication.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\RegisterRequest.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationRequest.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\User.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\JwtService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\testController.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\JwtAuthenticationFilter.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\MoscowHackApplication.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationController.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationService.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\Role.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\SecurityConfiguration.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\ApplicationConfig.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\UserRepository.java
