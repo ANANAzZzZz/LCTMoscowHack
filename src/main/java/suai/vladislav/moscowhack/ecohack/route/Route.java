@@ -3,11 +3,10 @@ package suai.vladislav.moscowhack.ecohack.route;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.park.Park;
+import suai.vladislav.moscowhack.ecohack.park.ParkContacts;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -19,11 +18,28 @@ public class Route {
     @Id
     @GeneratedValue
     private Integer id;
+
     private String title;
+
     private String additionalInfo;
-    private Integer routeSecurityId;
-    private Integer routeInformationId;
-    private Integer routeStateId;
-    private Integer routeDescriptionId;
-    private Integer routeRequirementsId;
+
+    @ManyToOne
+    @JoinColumn(name = "parkId")
+    private Park park;
+
+    @ManyToOne
+    @JoinColumn(name = "routeStateId")
+    private RouteState routeState;
+
+    @ManyToOne
+    @JoinColumn(name = "routeRequirementsId")
+    private RouteRequirements routeRequirements;
+
+    @ManyToOne
+    @JoinColumn(name = "routeSecurityId")
+    private RouteSecurity routeSecurity;
+
+    @ManyToOne
+    @JoinColumn(name = "routeDescriptionId")
+    private RouteDescription routeDescription;
 }

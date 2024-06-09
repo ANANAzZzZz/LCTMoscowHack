@@ -3,6 +3,7 @@ package suai.vladislav.moscowhack.ecohack.park;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.route.Route;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,15 +20,15 @@ public class Park {
     private Integer id;
     private Integer routeId;
 
-    @ManyToOne
-    @JoinColumn(name = "contactsId")
-    private ParkContacts parkContacts;
-
     private String title;
     private String description;
     private Integer avgTouristsPY;
     private String workingTime;
     private String siteUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "contactsId")
+    private ParkContacts parkContacts;
 
     @OneToMany(mappedBy = "park")
     private List<ParkPhoto> parkPhotos;
@@ -36,6 +37,8 @@ public class Park {
     private List<BorderCoords> borderCoords;
 
     @OneToMany(mappedBy = "park")
-    private List<ParkKeySight> parkKeySights;
+    private List<Route> routes;
 
+    @OneToMany(mappedBy = "park")
+    private List<ParkKeySight> parkKeySights;
 }
