@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import suai.vladislav.moscowhack.ecohack.park.Park;
-import suai.vladislav.moscowhack.ecohack.route.Route;
 import suai.vladislav.moscowhack.services.ParkService;
 
 import java.util.ArrayList;
@@ -22,8 +21,8 @@ public class ParkController {
         return parkService.getAllParks();
     }
 
-    @GetMapping("/findParkRoutesById")
-    public ArrayList<Park> getParkRoutesById(@RequestParam int id) {
-        return parkService.getParkRoutesById(id);
+    @GetMapping("/findParkById")
+    public ArrayList<Park> getParkById(@RequestParam int id) {
+        return parkService.getParkById(id);
     }
 }

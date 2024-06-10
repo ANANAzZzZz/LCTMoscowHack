@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/api/v1")
 @RestController
-public class testController {
+public class IndexController {
     @GetMapping("/")
-    public String test() {
-        return "test page";
+    public String returnIndexPage() {
+        return "this is an index page";
     }
 }
