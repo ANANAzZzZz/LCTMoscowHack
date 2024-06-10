@@ -33,7 +33,4 @@ public class RouteInformation {
     @ManyToOne
     @JoinColumn(name = "routeEntranceOptionsid")
     private RouteEntranceOptions routeEntranceOptions;
-
-
-
 }

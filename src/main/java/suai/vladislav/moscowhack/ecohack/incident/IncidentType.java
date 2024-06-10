@@ -18,7 +18,4 @@ public class IncidentType {
     private Integer id;
 
     private String name;
-
-    @OneToMany(mappedBy = "incidentSource")
-    private List<Incident> incidents;
 }

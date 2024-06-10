@@ -27,7 +27,4 @@ public class KeySight {
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;
-
-    @OneToMany(mappedBy = "keySight")
-    private List<KeySightPhoto> keySightPhotos;
 }

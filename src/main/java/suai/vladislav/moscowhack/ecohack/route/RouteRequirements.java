@@ -20,7 +20,4 @@ public class RouteRequirements {
     private String securityRules;
 
     private String residenceRules;
-
-    @OneToMany(mappedBy = "routeRequirements")
-    private List<Route> routes;
 }

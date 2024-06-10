@@ -25,7 +25,4 @@ public class RouteState {
     private String waterSources;
 
     private String mobileConnection;
-
-    @OneToMany(mappedBy = "routeState")
-    private List<Route> routes;
 }

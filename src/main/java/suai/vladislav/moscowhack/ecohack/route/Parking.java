@@ -27,7 +27,4 @@ public class Parking {
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;
-
-    @OneToMany(mappedBy = "parking")
-    private List<ParkingPhoto> parkingPhotos;
 }

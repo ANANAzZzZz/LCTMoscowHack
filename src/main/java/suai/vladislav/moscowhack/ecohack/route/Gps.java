@@ -22,7 +22,4 @@ public class Gps {
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;
-
-    @OneToMany(mappedBy = "gps")
-    private List<GpsPoint> gpsPoints;
 }
