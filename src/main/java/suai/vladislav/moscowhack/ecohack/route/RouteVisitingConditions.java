@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "RouteVisitingConditions")
 public class RouteVisitingConditions {
+    //
     @Id
     @GeneratedValue
     private Integer id;

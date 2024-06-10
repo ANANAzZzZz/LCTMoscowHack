@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "RouteTime")
 public class RouteTime {
+    //
     @Id
     @GeneratedValue
     private Integer id;

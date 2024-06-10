@@ -21,7 +21,7 @@ public class RouteInformation {
     private Integer numberMonthEndWork;
     private String routeType;
     private String routeComplexity;
-
+//
     @ManyToOne
     @JoinColumn(name = "routeLengthId")
     private RouteLength routeLength;

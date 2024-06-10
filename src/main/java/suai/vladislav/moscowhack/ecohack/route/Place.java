@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "Place")
 public class Place {
-
+//
     @Id
     @GeneratedValue
     private Integer id;

@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "RouteMoving")
 public class RouteMoving {
+    //
     @Id
     @GeneratedValue
     private Integer id;

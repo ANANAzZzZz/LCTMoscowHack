@@ -20,7 +20,7 @@ public class Route {
 
     private String title;
     private String additionalInfo;
-
+//
     @ManyToOne
     @JoinColumn(name = "routeInformationId")
     private RouteInformation routeInformation;
