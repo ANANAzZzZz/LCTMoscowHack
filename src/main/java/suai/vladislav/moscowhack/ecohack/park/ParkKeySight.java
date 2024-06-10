@@ -22,6 +22,9 @@ public class ParkKeySight {
     @JoinColumn(name = "parkid")
     private Park park;
 
+    @OneToMany(mappedBy = "parkKeySight")
+    private List<ParkKeySightPhoto> parkKeySightPhotos;
+
     private String description;
     private String title;
     private Point geotag;

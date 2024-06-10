@@ -19,4 +19,15 @@ public class RouteDescription {
 
     private String description;
 
+    @OneToMany(mappedBy = "routeDescription")
+    private List<Route> routes;
+
+    @OneToMany(mappedBy = "routeDescription")
+    private List<KeySight> keySights;
+
+    @OneToMany(mappedBy = "routeDescription")
+    private List<Parking> parkings;
+
+    @OneToMany(mappedBy = "routeDescription")
+    private List<Gps> gps;
 }

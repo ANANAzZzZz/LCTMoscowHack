@@ -25,4 +25,6 @@ public class IncidentStatus {
     @JoinColumn(name = "employeeId")
     private Employee employee;
 
+    @OneToMany(mappedBy = "incident")
+    private List<IncidentStatusXIncident> incidentStatusXIncidents;
 }

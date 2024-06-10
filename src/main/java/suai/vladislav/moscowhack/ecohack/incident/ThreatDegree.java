@@ -19,4 +19,6 @@ public class ThreatDegree {
 
     private String name;
 
+    @OneToMany(mappedBy = "threatDegree")
+    private List<Incident> incidents;
 }

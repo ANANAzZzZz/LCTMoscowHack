@@ -21,4 +21,6 @@ public class RouteRequirements {
 
     private String residenceRules;
 
+    @OneToMany(mappedBy = "routeRequirements")
+    private List<Route> routes;
 }

@@ -21,4 +21,9 @@ public class Employee {
 
     private String post;
 
+    @OneToMany(mappedBy = "employee")
+    private List<IncidentStatus> incidentStatuses;
+
+    @OneToMany(mappedBy = "employee")
+    private List<EmployeeXIncident> employeeXIncidents;
 }

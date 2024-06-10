@@ -32,6 +32,15 @@ public class Incident {
     @JoinColumn(name = "incidentTypeId")
     private IncidentType incidentType;
 
+    @OneToMany(mappedBy = "incident")
+    private List<IncidentPhoto> incidentPhotos;
+
+    @OneToMany(mappedBy = "employee")
+    private List<EmployeeXIncident> employeeXIncidents;
+
+    @OneToMany(mappedBy = "incidentStatus")
+    private List<IncidentStatusXIncident> incidentStatusXIncidents;
+
     private Point coordinates;
     private String comment;
 }
