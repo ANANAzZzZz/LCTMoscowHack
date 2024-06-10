@@ -26,4 +26,5 @@ public class ParkController {
     public ArrayList<Park> getParkRoutesById(@RequestParam int id) {
         return parkService.getParkRoutesById(id);
     }
+
 }

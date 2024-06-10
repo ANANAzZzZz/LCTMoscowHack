@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.park;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class ParkKeySightPhoto {
     @GeneratedValue
     private Integer id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "keySightId")
     private ParkKeySight parkKeySight;

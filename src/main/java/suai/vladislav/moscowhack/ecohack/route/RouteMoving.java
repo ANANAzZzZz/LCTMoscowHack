@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class RouteMoving {
     @GeneratedValue
     private Integer id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "routeVisitingConditionsId")
     private RouteInformation routeInformation;

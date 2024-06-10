@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.park;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +20,8 @@ public class ParkContacts {
     private Integer id;
     private String phone;
     private String email;
+
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "parkContacts")
+//    private List<Park> parks;
 }
