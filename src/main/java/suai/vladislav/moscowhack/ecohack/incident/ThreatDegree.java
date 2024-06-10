@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,8 @@ public class ThreatDegree {
     private Integer id;
 
     private String name;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "threatDegree")
+    private List<Incident> incidents;
 }

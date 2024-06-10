@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,4 +26,8 @@ public class RouteState {
     private String waterSources;
 
     private String mobileConnection;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeState")
+    private List<Route> routes;
 }

@@ -1,6 +1,9 @@
 package suai.vladislav.moscowhack.ecohack.park;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import suai.vladislav.moscowhack.ecohack.route.Route;
 
@@ -33,4 +36,12 @@ public class Park {
     @ManyToOne
     @JoinColumn(name = "contactsId")
     private ParkContacts parkContacts;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "park")
+    private List<ParkPhoto> parkPhotos;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "park")
+    private List<BorderCoords> borderCoords;
 }

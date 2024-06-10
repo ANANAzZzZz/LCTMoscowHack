@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,4 +27,16 @@ public class RouteSecurity {
     private String firstAid;
 
     private String orderOfActions;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeSecurity")
+    private List<Route> routes;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeSecurity")
+    private List<DangerZone> dangerZones;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeSecurity")
+    private List<Equipment> equipment;
 }

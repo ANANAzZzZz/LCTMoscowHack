@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,8 @@ public class RouteRequirements {
     private String securityRules;
 
     private String residenceRules;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeRequirements")
+    private List<Route> routes;
 }

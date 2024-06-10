@@ -23,6 +23,10 @@ public class ParkKeySight {
     private Park park;
 
     private String description;
+
     private String title;
-    private Point geotag;
+
+    private float latitude;
+
+    private float longitude;
 }
