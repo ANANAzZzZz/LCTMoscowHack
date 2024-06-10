@@ -1,13 +1,14 @@
 package suai.vladislav.moscowhack.ecohack.park;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import suai.vladislav.moscowhack.ecohack.route.Route;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,12 +19,15 @@ public class Park {
     @Id
     @GeneratedValue
     private Integer id;
-    private Integer routeId;
 
     private String title;
+
     private String description;
+
     private Integer avgTouristsPY;
+
     private String workingTime;
+
     private String siteUrl;
 
     @ManyToOne
