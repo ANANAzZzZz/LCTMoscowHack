@@ -29,16 +29,5 @@ public class Park {
     @ManyToOne
     @JoinColumn(name = "contactsId")
     private ParkContacts parkContacts;
-
-    @OneToMany(mappedBy = "park")
-    private List<ParkPhoto> parkPhotos;
-
-    @OneToMany(mappedBy = "park")
-    private List<BorderCoords> borderCoords;
-
-    @OneToMany(mappedBy = "park")
-    private List<Route> routes;
-
-    @OneToMany(mappedBy = "park")
-    private List<ParkKeySight> parkKeySights;
+    
 }

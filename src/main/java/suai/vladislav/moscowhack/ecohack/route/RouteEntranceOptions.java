@@ -18,8 +18,6 @@ public class RouteEntranceOptions {
     @GeneratedValue
     private Integer id;
 
-    @OneToMany(mappedBy = "routeEntranceOptions")
-    private List<RouteInformation> routeInformation;
 
     private String title;
     private String content;

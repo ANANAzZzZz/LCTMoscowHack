@@ -22,15 +22,6 @@ public class RouteInformation {
     private String routeType;
     private String routeComplexity;
 
-    @OneToMany(mappedBy = "routeInformation")
-    private List<RouteMoving> routeMoving;
-
-    @OneToMany(mappedBy = "routeInformation")
-    private List<Route> route;
-
-    @OneToMany(mappedBy = "routeInformation")
-    private List<RouteVisitingConditionsXRouteInformation> routeVisitingConditionsXRouteInformation;
-
     @ManyToOne
     @JoinColumn(name = "routeLengthId")
     private RouteLength routeLength;

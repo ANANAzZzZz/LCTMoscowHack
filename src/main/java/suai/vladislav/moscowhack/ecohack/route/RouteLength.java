@@ -18,8 +18,6 @@ public class RouteLength {
     private Integer id;
     private Integer lengthKM;
 
-    @OneToMany(mappedBy = "routeLength")
-    private List<RouteInformation> routeInformation;
 
     @ManyToOne
     @JoinColumn(name = "startPlaceId")

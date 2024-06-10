@@ -27,12 +27,4 @@ public class RouteSecurity {
 
     private String orderOfActions;
 
-    @OneToMany(mappedBy = "routeSecurity")
-    private List<Route> routes;
-
-    @OneToMany(mappedBy = "routeSecurity")
-    private List<DangerZone> dangerZones;
-
-    @OneToMany(mappedBy = "routeSecurity")
-    private List<Equipment> equipment;
 }

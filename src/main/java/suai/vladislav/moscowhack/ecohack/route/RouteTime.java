@@ -18,8 +18,6 @@ public class RouteTime {
     @GeneratedValue
     private Integer id;
 
-    @OneToMany(mappedBy = "routeTime")
-    private List<RouteInformation> routeInformation;
 
     private Integer hours;
     private Integer days;

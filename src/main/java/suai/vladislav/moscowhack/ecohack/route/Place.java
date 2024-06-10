@@ -18,11 +18,6 @@ public class Place {
     @GeneratedValue
     private Integer id;
 
-    @OneToMany(mappedBy = "placeS")
-    private List<RouteLength> routeLengthS;
-
-    @OneToMany(mappedBy = "placeE")
-    private List<RouteLength> routeLengthE;
 
     private String name;
 }

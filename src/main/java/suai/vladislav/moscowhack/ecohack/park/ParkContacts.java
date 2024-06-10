@@ -18,7 +18,4 @@ public class ParkContacts {
     private Integer id;
     private String phone;
     private String email;
-
-    @OneToMany(mappedBy = "parkContacts")
-    private List<Park> park;
 }
