@@ -17,19 +17,31 @@ public class Route {
     @Id
     @GeneratedValue
     private Integer id;
+
     private String title;
     private String additionalInfo;
-    private Integer routeSecurityId;
 
     @ManyToOne
     @JoinColumn(name = "routeInformationId")
     private RouteInformation routeInformation;
 
     @ManyToOne
-    @JoinColumn(name = "parkid")
+    @JoinColumn(name = "parkId")
     private Park park;
 
-    private Integer routeStateId;
-    private Integer routeDescriptionId;
-    private Integer routeRequirementsId;
+    @ManyToOne
+    @JoinColumn(name = "routeStateId")
+    private RouteState routeState;
+
+    @ManyToOne
+    @JoinColumn(name = "routeRequirementsId")
+    private RouteRequirements routeRequirements;
+
+    @ManyToOne
+    @JoinColumn(name = "routeSecurityId")
+    private RouteSecurity routeSecurity;
+
+    @ManyToOne
+    @JoinColumn(name = "routeDescriptionId")
+    private RouteDescription routeDescription;
 }

@@ -3,6 +3,7 @@ package suai.vladislav.moscowhack.ecohack.incident;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.park.ParkContacts;
 import suai.vladislav.moscowhack.ecohack.park.ParkPhoto;
 
 import javax.persistence.*;
@@ -19,13 +20,27 @@ public class Incident {
     @GeneratedValue
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "sourceId")
+    private IncidentSource incidentSource;
+
+    @ManyToOne
+    @JoinColumn(name = "threatDegreeId")
+    private ThreatDegree threatDegree;
+
+    @ManyToOne
+    @JoinColumn(name = "incidentTypeId")
+    private IncidentType incidentType;
+
     @OneToMany(mappedBy = "incident")
     private List<IncidentPhoto> incidentPhotos;
 
-    private Integer incidentTypeId;
-    private Point coordinates;
-    private Integer threatDegreeId;
-    private Integer sourceId;
-    private String comment;
+    @OneToMany(mappedBy = "employee")
+    private List<EmployeeXIncident> employeeXIncidents;
 
+    @OneToMany(mappedBy = "incidentStatus")
+    private List<IncidentStatusXIncident> incidentStatusXIncidents;
+
+    private Point coordinates;
+    private String comment;
 }
