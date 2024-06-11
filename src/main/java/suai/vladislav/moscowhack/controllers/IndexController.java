@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     @GetMapping("/")
     public String returnIndexPage() {
-        return "this is an index page";
+        return "this is an index";
     }
 }

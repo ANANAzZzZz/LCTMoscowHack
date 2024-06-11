@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,9 @@ public class RouteEntranceOptions {
     @GeneratedValue
     private Integer id;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "routeEntranceOptions")
+    private List<RouteInformation> routeInformation;
 
     private String title;
     private String content;

@@ -1,8 +1,10 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.park.ParkPhoto;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,11 +15,18 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "Place")
 public class Place {
-//
+
     @Id
     @GeneratedValue
     private Integer id;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "placeS")
+    private List<RouteLength> routeLengthS;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "placeE")
+    private List<RouteLength> routeLengthE;
 
     private String name;
 }
