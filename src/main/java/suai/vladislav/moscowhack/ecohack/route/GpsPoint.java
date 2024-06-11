@@ -17,7 +17,9 @@ public class GpsPoint {
     @GeneratedValue
     private Integer id;
 
-    private Point geotag;
+    private float latitude;
+
+    private float longitude;
 
     @ManyToOne
     @JoinColumn(name = "gpsId")

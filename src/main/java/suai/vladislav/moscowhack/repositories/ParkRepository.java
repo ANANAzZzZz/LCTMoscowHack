@@ -8,6 +8,5 @@ import suai.vladislav.moscowhack.ecohack.route.Route;
 import java.util.ArrayList;
 
 public interface ParkRepository extends CrudRepository<Park, Long> {
-    @Query("select r.routes from Park r")
-    public ArrayList<Park> findAllByIdEquals(Integer id);
+    ArrayList<Park> findAllByIdEquals(Integer id);
 }

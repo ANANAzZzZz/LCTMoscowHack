@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,15 @@ public class KeySight {
 
     private String title;
 
-    private Point point;
+    private float latitude;
+
+    private float longitude;
 
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "keySight")
+    private List<KeySightPhoto> keySightPhotos;
 }

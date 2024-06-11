@@ -30,6 +30,10 @@ public class ParkKeySight {
     private List<ParkKeySightPhoto> parkKeySightPhotos;
 
     private String description;
+
     private String title;
-    private Point geotag;
+
+    private float latitude;
+
+    private float longitude;
 }

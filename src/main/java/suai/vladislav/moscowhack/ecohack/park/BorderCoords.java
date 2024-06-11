@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.awt.*;
 
 @Data
 @NoArgsConstructor
@@ -23,5 +22,7 @@ public class BorderCoords {
     @JoinColumn(name = "parkid")
     private Park park;
 
-    private Point geoTag;
+    private float latitude;
+
+    private float longitude;
 }

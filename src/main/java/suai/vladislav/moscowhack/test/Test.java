@@ -1,15 +1,28 @@
 package suai.vladislav.moscowhack.test;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import suai.vladislav.moscowhack.ecohack.auth.AuthenticationResponse;
+import suai.vladislav.moscowhack.ecohack.auth.AuthenticationService;
+import suai.vladislav.moscowhack.ecohack.config.JwtService;
 
-@RestController
+import javax.servlet.http.HttpServletRequest;
+
 @RequestMapping("/api/v1/test")
-public class Test {
+@RestController
+@RequiredArgsConstructor
 
+public class Test {
+    private final AuthenticationService service;
     @GetMapping
-    public String test() {
-        return "test";
+    public ResponseEntity<String> returnTest(@RequestParam String id) {
+        return ResponseEntity.ok("Hello World " + id);
+    }
+
+    @PostMapping("/authenticateWithToken")
+    public ResponseEntity<AuthenticationResponse> authenticateWithToken(HttpServletRequest request) {
+        System.out.println("--------------------------------------------------------------------------------");
+        return ResponseEntity.ok(service.authenticateWithToken(request));
     }
 }

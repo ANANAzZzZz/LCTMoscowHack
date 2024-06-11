@@ -21,7 +21,6 @@ public class ParkContacts {
     private String phone;
     private String email;
 
-//    @JsonManagedReference
 //    @OneToMany(mappedBy = "parkContacts")
-//    private List<Park> parks;
+//    private List<Park> park;
 }

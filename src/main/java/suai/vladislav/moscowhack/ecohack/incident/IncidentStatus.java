@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,4 +25,8 @@ public class IncidentStatus {
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private Employee employee;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "incident")
+    private List<IncidentStatusXIncident> incidentStatusXIncidents;
 }

@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.auth;
 
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -29,4 +32,10 @@ public class AuthenticationController {
     ) {
         return ResponseEntity.ok(service.authenticate(request));
     }
+
+//    @PostMapping("/authenticateWithToken")
+//    public ResponseEntity<AuthenticationResponse> authenticateWithToken(HttpServletRequest request) {
+//        System.out.println("was");
+//        return ResponseEntity.ok(service.authenticateWithToken(request));
+//    }
 }
