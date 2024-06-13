@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.park.Park;
+import suai.vladislav.moscowhack.pojo.Response;
 import suai.vladislav.moscowhack.repositories.ParkRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -21,5 +23,9 @@ public class ParkService {
 
     public ArrayList<Park> getParkById(Integer id) {
         return (ArrayList<Park>) parkRepository.findAllByIdEquals(id);
+    }
+
+    public void savePark(List<Park> park) {
+        parkRepository.saveAll(park);
     }
 }

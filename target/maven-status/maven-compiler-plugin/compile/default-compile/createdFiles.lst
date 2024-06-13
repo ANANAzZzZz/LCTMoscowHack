@@ -31,6 +31,7 @@ suai\vladislav\moscowhack\ecohack\hike\HikeGroup.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentType.class
 suai\vladislav\moscowhack\repositories\ParkRepository.class
 suai\vladislav\moscowhack\ecohack\user\Role.class
+suai\vladislav\moscowhack\pojo\Response.class
 suai\vladislav\moscowhack\ecohack\incident\ThreatDegree.class
 suai\vladislav\moscowhack\test\Test.class
 suai\vladislav\moscowhack\ecohack\auth\RegisterRequest.class
@@ -46,6 +47,7 @@ suai\vladislav\moscowhack\ecohack\route\Place.class
 suai\vladislav\moscowhack\ecohack\hike\HikeGroupXUser.class
 suai\vladislav\moscowhack\ecohack\user\User$UserBuilder.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse$AuthenticationResponseBuilder.class
+suai\vladislav\moscowhack\pojo\Data.class
 suai\vladislav\moscowhack\ecohack\park\ParkPhoto.class
 suai\vladislav\moscowhack\ecohack\route\Parking.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationTokenRequest.class
@@ -59,8 +61,10 @@ suai\vladislav\moscowhack\ecohack\incident\Employee.class
 suai\vladislav\moscowhack\ecohack\hike\HikeInvite.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationService.class
 suai\vladislav\moscowhack\ecohack\route\ParkingPhoto.class
+org\example\GraphQLCaller.class
 suai\vladislav\moscowhack\ecohack\user\UserRepository.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentPhoto.class
+suai\vladislav\moscowhack\pojo\AreasListItem.class
 suai\vladislav\moscowhack\ecohack\route\Gps.class
 suai\vladislav\moscowhack\ecohack\route\RouteTime.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentSource.class

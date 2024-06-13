@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "Park")
+@JsonIgnoreProperties(value = {"id"})
 public class Park {
 
     @Id
@@ -24,14 +25,19 @@ public class Park {
     private Integer id;
 
     private String title;
-
     private String description;
-
     private Integer avgTouristsPY;
-
     private String workingTime;
-
     private String siteUrl;
+
+    // Поля из AreasListItem
+    private String borderColor;
+    private String color;
+    private String name;
+    private String areaId;  // Переименование id из AreasListItem для избежания конфликта
+
+    @Column(columnDefinition = "TEXT")
+    private String points;
 
     @ManyToOne
     @JoinColumn(name = "contactsId")

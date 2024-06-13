@@ -1,5 +1,6 @@
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\incident\Incident.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\park\ParkContacts.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\pojo\Data.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\MoscowHackApplication.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\incident\Employee.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\park\BorderCoords.java
@@ -15,7 +16,9 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\DangerZ
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\RegisterRequest.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\hike\HikeRequest.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteLength.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\pojo\AreasListItem.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteSecurity.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\pojo\Response.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\JwtAuthenticationFilter.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteVisitingConditionsXRouteInformation.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\RouteRepository.java
@@ -25,6 +28,7 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\Gps.jav
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\Place.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\Parking.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteState.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\GraphQLCaller.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\test\Test.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\incident\ThreatDegree.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteTime.java
