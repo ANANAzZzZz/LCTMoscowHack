@@ -20,7 +20,7 @@ public class RouteMoving {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "routeMoving")
     @ManyToOne
     @JoinColumn(name = "routeVisitingConditionsId")
     private RouteInformation routeInformation;

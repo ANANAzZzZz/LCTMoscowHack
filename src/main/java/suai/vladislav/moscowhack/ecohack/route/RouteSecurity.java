@@ -28,7 +28,7 @@ public class RouteSecurity {
 
     private String orderOfActions;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeSecurity")
     @OneToMany(mappedBy = "routeSecurity")
     private List<Route> routes;
 

@@ -19,7 +19,7 @@ public class RouteVisitingConditions {
     @GeneratedValue
     private Integer id;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "RouteVisitingConditions")
     @OneToMany(mappedBy = "routeVisitingConditions")
     private List<RouteVisitingConditionsXRouteInformation> routeVisitingConditionsXRouteInformation;
 

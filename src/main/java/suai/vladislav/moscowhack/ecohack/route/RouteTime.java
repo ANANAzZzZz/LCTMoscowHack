@@ -20,7 +20,7 @@ public class RouteTime {
     @GeneratedValue
     private Integer id;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeTime")
     @OneToMany(mappedBy = "routeTime")
     private List<RouteInformation> routeInformation;
 

@@ -20,11 +20,11 @@ public class Place {
     @GeneratedValue
     private Integer id;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "placeS")
     @OneToMany(mappedBy = "placeS")
     private List<RouteLength> routeLengthS;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "placeE")
     @OneToMany(mappedBy = "placeE")
     private List<RouteLength> routeLengthE;
 

@@ -21,17 +21,17 @@ public class RouteLength {
     private Integer id;
     private Integer lengthKM;
 
-    @JsonBackReference
+    @JsonBackReference(value = "placeS")
     @ManyToOne
     @JoinColumn(name = "startPlaceId")
     private Place placeS;
 
-    @JsonBackReference
+    @JsonBackReference(value = "placeE")
     @ManyToOne
     @JoinColumn(name = "endPlaceId")
     private Place placeE;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeLength")
     @OneToMany(mappedBy = "routeLength")
     private List<RouteInformation> routeInformation;
 

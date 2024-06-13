@@ -18,12 +18,12 @@ public class RouteVisitingConditionsXRouteInformation {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "RouteVisitingConditions")
     @ManyToOne
     @JoinColumn(name = "routeVisitingConditionsId")
     private RouteVisitingConditions routeVisitingConditions;
 
-    @JsonBackReference
+    @JsonBackReference(value = "routeInformationCross")
     @ManyToOne
     @JoinColumn(name = "routeInformationId")
     private RouteInformation routeInformation;

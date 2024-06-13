@@ -22,7 +22,7 @@ public class ParkPhoto {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "parkPhotos")
     @ManyToOne
     @JoinColumn(name = "parkid")
     private Park park;

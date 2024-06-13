@@ -1,4 +1,4 @@
-package org.example;
+package suai.vladislav.moscowhack;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpResponse;
@@ -28,9 +28,10 @@ public class GraphQLCaller {
         Map<String, Object> requestJson = new HashMap<>();
         requestJson.put("query", query);
 
-//        if (variables != null) {
-//            requestJson.put("variables", variables);
-//        }
+        String variables = "{ \"id\": \"654228fe078c3cc408110b88\" }";
+        if (variables != null) {
+            requestJson.put("variables", variables);
+        }
 
         // Конвертация объекта запроса в JSON строку
         ObjectMapper objectMapper = new ObjectMapper();

@@ -27,7 +27,7 @@ public class RouteState {
 
     private String mobileConnection;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeState")
     @OneToMany(mappedBy = "routeState")
     private List<Route> routes;
 }

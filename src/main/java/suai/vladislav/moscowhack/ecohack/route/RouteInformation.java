@@ -24,30 +24,30 @@ public class RouteInformation {
     private String routeType;
     private String routeComplexity;
 //
-    @JsonBackReference
+    @JsonBackReference(value = "routeLength")
     @ManyToOne
     @JoinColumn(name = "routeLengthId")
     private RouteLength routeLength;
 
-    @JsonBackReference
+    @JsonBackReference(value = "routeTime")
     @ManyToOne
     @JoinColumn(name = "routeTimeId")
     private RouteTime routeTime;
 
-    @JsonBackReference
+    @JsonBackReference(value = "routeEntranceOptions")
     @ManyToOne
     @JoinColumn(name = "routeEntranceOptionsid")
     private RouteEntranceOptions routeEntranceOptions;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeInformation")
     @OneToMany(mappedBy = "routeInformation")
     private List<Route> Route;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeMoving")
     @OneToMany(mappedBy = "routeInformation")
     private List<RouteMoving>routeMoving;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeInformationCross")
     @OneToMany(mappedBy = "routeInformation")
     private List<RouteVisitingConditionsXRouteInformation> routeVisitingConditionsXRouteInformation;
 }

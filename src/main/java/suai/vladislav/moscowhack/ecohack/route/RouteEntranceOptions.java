@@ -19,7 +19,7 @@ public class RouteEntranceOptions {
     @GeneratedValue
     private Integer id;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeEntranceOptions")
     @OneToMany(mappedBy = "routeEntranceOptions")
     private List<RouteInformation> routeInformation;
 

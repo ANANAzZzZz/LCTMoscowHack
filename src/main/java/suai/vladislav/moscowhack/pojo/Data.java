@@ -1,13 +1,13 @@
 package suai.vladislav.moscowhack.pojo;
 
-import suai.vladislav.moscowhack.ecohack.park.Park;
+import suai.vladislav.moscowhack.ecohack.route.Route;
 
 import java.util.List;
 
 public class Data{
-	private List<Park> areasList;
+	private List<Route> tracksListByPark;
 
-	public List<Park> getAreasList(){
-		return areasList;
+	public List<Route> getTracksListByPark(){
+		return tracksListByPark;
 	}
 }
