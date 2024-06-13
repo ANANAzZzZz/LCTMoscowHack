@@ -37,17 +37,17 @@ public class RouteController {
         return routeService.getRoutesByParkId(id);
     }
 
-    @GetMapping("/loadRoutes")
-    public void fillRoutes() {
-        try {
-            HttpResponse httpResponse = callGraphQLService("https://green-button.empedokl.com/api/graphql", "query { tracksListByPark(id: \"638f25e2400559793e2ddc80\") { color description id name onMap paths} }");
-            String actualResponse = IOUtils.toString(httpResponse.getEntity().getContent(), StandardCharsets.UTF_8.name());
-            ObjectMapper objectMapper = new ObjectMapper();
-            Response parsedResponse = objectMapper.readValue(actualResponse, Response.class);
-            routeService.saveRoute(parsedResponse.getData().getTracksListByPark());
-
-        } catch (URISyntaxException | IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @GetMapping("/loadRoutes")
+//    public void fillRoutes() {
+//        try {
+//            HttpResponse httpResponse = callGraphQLService("https://green-button.empedokl.com/api/graphql", "query { tracksListByPark(id: \"638f25e2400559793e2ddc80\") { color description id name onMap paths} }");
+//            String actualResponse = IOUtils.toString(httpResponse.getEntity().getContent(), StandardCharsets.UTF_8.name());
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            Response parsedResponse = objectMapper.readValue(actualResponse, Response.class);
+//            routeService.saveRoute(parsedResponse.getData().getTracksListByPark());
+//
+//        } catch (URISyntaxException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
