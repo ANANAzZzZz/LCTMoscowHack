@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.user;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
+import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
+import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
+import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -68,4 +73,28 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<HikeInvite> hikeInvites;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "userCreator")
+    private List<HikeInvite> hikeInvitesCreator;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<HikeRequest> hikeRequests;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "userCreator")
+    private List<HikeRequest> hikeRequestsCreator;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<HikeGroup> hikeGroups;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
+    private List<HikeGroupXUser> hikeGroupXUsers;
 }

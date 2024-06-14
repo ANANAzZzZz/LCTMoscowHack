@@ -33,6 +33,7 @@ public class Park {
 
     private String siteUrl;
 
+
     @ManyToOne
     @JoinColumn(name = "contactsId")
     private ParkContacts parkContacts;

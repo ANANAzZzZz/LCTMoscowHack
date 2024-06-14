@@ -33,9 +33,4 @@ public class AuthenticationController {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-//    @PostMapping("/authenticateWithToken")
-//    public ResponseEntity<AuthenticationResponse> authenticateWithToken(HttpServletRequest request) {
-//        System.out.println("was");
-//        return ResponseEntity.ok(service.authenticateWithToken(request));
-//    }
 }

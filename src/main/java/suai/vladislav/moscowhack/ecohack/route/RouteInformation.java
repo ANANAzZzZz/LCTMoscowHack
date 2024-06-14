@@ -23,7 +23,7 @@ public class RouteInformation {
     private Integer numberMonthEndWork;
     private String routeType;
     private String routeComplexity;
-//
+
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "routeLengthId")
@@ -41,11 +41,11 @@ public class RouteInformation {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "routeInformation")
-    private List<Route> Route;
+    private List<Route> route;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "routeInformation")
-    private List<RouteMoving>routeMoving;
+    private List<RouteMoving> routeMoving;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "routeInformation")

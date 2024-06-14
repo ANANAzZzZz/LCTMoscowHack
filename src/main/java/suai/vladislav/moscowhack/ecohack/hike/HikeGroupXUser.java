@@ -1,13 +1,12 @@
 package suai.vladislav.moscowhack.ecohack.hike;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +18,13 @@ public class HikeGroupXUser {
     @GeneratedValue
     private Integer id;
 
-    private Integer hikeGroupId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "hikeGroupId")
+    private HikeGroup hikeGroup;
 
-    private Integer userId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 }

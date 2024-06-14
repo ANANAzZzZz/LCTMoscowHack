@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(new AntPathRequestMatcher("/api/v1/auth/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement()

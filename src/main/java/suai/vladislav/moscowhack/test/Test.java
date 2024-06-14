@@ -22,7 +22,6 @@ public class Test {
 
     @PostMapping("/authenticateWithToken")
     public ResponseEntity<AuthenticationResponse> authenticateWithToken(HttpServletRequest request) {
-        System.out.println("--------------------------------------------------------------------------------");
         return ResponseEntity.ok(service.authenticateWithToken(request));
     }
 }

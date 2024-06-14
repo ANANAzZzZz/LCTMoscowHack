@@ -1,11 +1,12 @@
 package suai.vladislav.moscowhack.ecohack.hike;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import suai.vladislav.moscowhack.ecohack.park.ParkContacts;
+import suai.vladislav.moscowhack.ecohack.user.User;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -17,9 +18,24 @@ public class HikeInvite {
     @GeneratedValue
     private Integer id;
 
-    private Integer creatorId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "creatorId")
+    private User userCreator;
 
-    private Integer userId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
-    private Integer hikeGroupId;
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "hikeGroupId")
+    private HikeGroup hikeGroup;
+
+    public HikeInvite(Optional<User> byId, Optional<User> byId1, Optional<HikeGroup> byId2) {
+        this.user = byId.orElseThrow();
+        this.userCreator = byId1.orElseThrow();
+        this.hikeGroup = byId2.orElseThrow();
+    }
 }

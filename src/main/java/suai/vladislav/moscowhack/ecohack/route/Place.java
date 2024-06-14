@@ -9,8 +9,8 @@ import suai.vladislav.moscowhack.ecohack.park.ParkPhoto;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Place")
@@ -19,6 +19,7 @@ public class Place {
     @Id
     @GeneratedValue
     private Integer id;
+    private String name;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "placeS")
@@ -28,5 +29,5 @@ public class Place {
     @OneToMany(mappedBy = "placeE")
     private List<RouteLength> routeLengthE;
 
-    private String name;
+
 }

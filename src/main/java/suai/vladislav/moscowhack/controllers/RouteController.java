@@ -1,16 +1,19 @@
 package suai.vladislav.moscowhack.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import suai.vladislav.moscowhack.ecohack.park.Park;
 import suai.vladislav.moscowhack.ecohack.route.Route;
+import suai.vladislav.moscowhack.ecohack.route.RouteTime;
 import suai.vladislav.moscowhack.services.ParkService;
 import suai.vladislav.moscowhack.services.RouteService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/api/v1")
 @RestController
@@ -20,7 +23,6 @@ public class RouteController {
 
     @GetMapping("/routes")
     public ArrayList<Route> getRoutes() {
-
         return routeService.getRoutes();
     }
 
@@ -28,4 +30,5 @@ public class RouteController {
     public ArrayList<Route> getParkById(@RequestParam int id) {
         return routeService.getRoutesByParkId(id);
     }
+
 }

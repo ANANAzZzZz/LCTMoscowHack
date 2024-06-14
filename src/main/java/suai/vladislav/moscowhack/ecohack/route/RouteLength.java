@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "RouteLength")
 public class RouteLength {
-    //
+
     @Id
     @GeneratedValue
     private Integer id;
