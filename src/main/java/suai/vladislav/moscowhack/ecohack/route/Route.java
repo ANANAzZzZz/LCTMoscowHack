@@ -25,13 +25,19 @@ public class Route {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-
+    @JsonProperty("areaId")
     private String areaId;
 
-    @JsonProperty("id")
+    @JsonProperty("routeId")
     private String routeId;
 
 
+    @JsonProperty("routeId")
+    public void setRouteId(String routeId) {
+        this.routeId = routeId;
+    }
+
+    @JsonProperty("areaId")
     public String getAreaId() {
         return areaId;
     }
@@ -124,12 +130,12 @@ public class Route {
         return routeInformation;
     }
 
-    @JsonProperty("id")
+    @JsonProperty("routeId")
     public String getRouteId() {
         return routeId;
     }
 
-    @JsonProperty("id")
+    @JsonProperty("areaId")
     public void setAreaId(String areaId) {
         this.routeId = areaId;
     }
