@@ -22,7 +22,7 @@ public class RouteRequirements {
 
     private String residenceRules;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "routeRequirements")
     @OneToMany(mappedBy = "routeRequirements")
     private List<Route> routes;
 }

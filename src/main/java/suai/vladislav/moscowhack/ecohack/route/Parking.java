@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Parking {
 
     private float longitude;
 
+    @JsonBackReference(value = "Parking")
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;

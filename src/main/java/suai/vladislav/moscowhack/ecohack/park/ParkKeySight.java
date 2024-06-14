@@ -20,7 +20,7 @@ public class ParkKeySight {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "parkKeySight")
     @ManyToOne
     @JoinColumn(name = "parkid")
     private Park park;

@@ -17,7 +17,7 @@ public class BorderCoords {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference
+    @JsonBackReference(value = "parkCoords")
     @ManyToOne
     @JoinColumn(name = "parkid")
     private Park park;

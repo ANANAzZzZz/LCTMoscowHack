@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ public class GpsPoint {
 
     private float longitude;
 
+    @JsonBackReference(value = "gps")
     @ManyToOne
     @JoinColumn(name = "gpsId")
     private Gps gps;

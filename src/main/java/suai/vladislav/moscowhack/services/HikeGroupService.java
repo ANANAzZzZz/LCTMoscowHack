@@ -75,7 +75,7 @@ public class HikeGroupService {
                 userRepository.findById(hikeInviteOpenGroup.getCreatorId()),
                 hikeGroupRepository.findById(hikeInviteOpenGroup.getHikeGroupId()));
         try {
-            hikeInviteOpenGroupRepository.save(hikeInviteOpenGroup);
+            hikeInviteOpenGroupRepository.save(hikeInvite);
             return "HikeInvite was created";
         } catch (Exception e) {
             log.error(e.getMessage());
