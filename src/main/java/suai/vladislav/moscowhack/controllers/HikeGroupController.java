@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
 import suai.vladislav.moscowhack.requests.HikeGroupRequest;
+import suai.vladislav.moscowhack.requests.HikeGroupXUserRequest;
 import suai.vladislav.moscowhack.requests.HikeInviteOpenGroup;
 import suai.vladislav.moscowhack.requests.HikeRequestOpenGroup;
 import suai.vladislav.moscowhack.responses.HikeGroupResponse;
@@ -68,6 +69,13 @@ public class HikeGroupController {
                 findGroupsBetweenTimes(startTime.plusHours(10), startTime.plusHours(11), routeId)
         );
         return ResponseEntity.ok(startTimeToAndTimeResponse);
+    }
+
+    @PostMapping("/addUserInHikeGroup")
+    public ResponseEntity<String> addUserInHikeGroup (
+            @RequestBody HikeGroupXUserRequest request
+    ) {
+        return ResponseEntity.ok(hikeGroupService.addUserInHikeGroup(request));
     }
 
 }

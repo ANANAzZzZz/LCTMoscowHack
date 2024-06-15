@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import suai.vladislav.moscowhack.ecohack.user.User;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -27,4 +28,9 @@ public class HikeGroupXUser {
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
+
+    public HikeGroupXUser(Optional<HikeGroup> byId, Optional<User> byId1) {
+        this.hikeGroup = byId.orElseThrow();
+        this.user = byId1.orElseThrow();
+    }
 }

@@ -4,14 +4,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
+import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
 import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
 import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
 import suai.vladislav.moscowhack.ecohack.user.UserRepository;
-import suai.vladislav.moscowhack.repositories.HikeGroupRepository;
-import suai.vladislav.moscowhack.repositories.HikeInviteOpenGroupRepository;
-import suai.vladislav.moscowhack.repositories.HikeRequestRepository;
-import suai.vladislav.moscowhack.repositories.RouteRepository;
+import suai.vladislav.moscowhack.repositories.*;
 import suai.vladislav.moscowhack.requests.HikeGroupRequest;
+import suai.vladislav.moscowhack.requests.HikeGroupXUserRequest;
 import suai.vladislav.moscowhack.requests.HikeInviteOpenGroup;
 import suai.vladislav.moscowhack.requests.HikeRequestOpenGroup;
 
@@ -27,14 +26,16 @@ public class HikeGroupService {
     private final RouteRepository routeRepository;
     private final HikeRequestRepository hikeRequestRepository;
     private final HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository;
+    private final HikeGroupXUserRepository hikeGroupXUserRepository;
 
     @Autowired
-    public HikeGroupService(HikeGroupRepository hikeGroupRepository, UserRepository userRepository, RouteRepository routeRepository, HikeRequestRepository hikeRequestRepository, HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository) {
+    public HikeGroupService(HikeGroupRepository hikeGroupRepository, UserRepository userRepository, RouteRepository routeRepository, HikeRequestRepository hikeRequestRepository, HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository, HikeGroupXUserRepository hikeGroupXUserRepository) {
         this.hikeGroupRepository = hikeGroupRepository;
         this.userRepository = userRepository;
         this.routeRepository = routeRepository;
         this.hikeRequestRepository = hikeRequestRepository;
         this.hikeInviteOpenGroupRepository = hikeInviteOpenGroupRepository;
+        this.hikeGroupXUserRepository = hikeGroupXUserRepository;
     }
 
     public String saveHikeGroup(HikeGroupRequest hikeGroupRequest) {
@@ -56,7 +57,7 @@ public class HikeGroupService {
     }
 
     public String requestHikeGroup(HikeRequestOpenGroup hikeRequestOpenGroup) {
-        HikeRequest hikeRequest= new HikeRequest(
+        HikeRequest hikeRequest = new HikeRequest(
                 userRepository.findById(hikeRequestOpenGroup.getUserId()),
                 userRepository.findById(hikeRequestOpenGroup.getCreatorId()),
                 hikeGroupRepository.findById(hikeRequestOpenGroup.getHikeGroupId()));
@@ -70,7 +71,7 @@ public class HikeGroupService {
     }
 
     public String inviteHikeGroup(HikeInviteOpenGroup hikeInviteOpenGroup) {
-        HikeInvite hikeInvite= new HikeInvite(
+        HikeInvite hikeInvite = new HikeInvite(
                 userRepository.findById(hikeInviteOpenGroup.getUserId()),
                 userRepository.findById(hikeInviteOpenGroup.getCreatorId()),
                 hikeGroupRepository.findById(hikeInviteOpenGroup.getHikeGroupId()));
@@ -85,11 +86,11 @@ public class HikeGroupService {
 
     public List<Integer> findGroupsFromStartTimeToEndTime
             (
-            LocalDateTime startTime,
-            LocalDateTime endTime,
-            Integer routeId
-    ) {
-        return hikeGroupRepository.findGroupsFromStartTimeToEndTime(startTime,endTime,routeId);
+                    LocalDateTime startTime,
+                    LocalDateTime endTime,
+                    Integer routeId
+            ) {
+        return hikeGroupRepository.findGroupsFromStartTimeToEndTime(startTime, endTime, routeId);
     }
 
     public Integer allMembersCountInThisRouteWithSpecifiedTime(List<Integer> times) {
@@ -98,6 +99,21 @@ public class HikeGroupService {
             allMembersCountInThisRouteWithSpecifiedTime += time;
         }
         return allMembersCountInThisRouteWithSpecifiedTime;
+    }
+
+
+    public String addUserInHikeGroup(HikeGroupXUserRequest request) {
+        HikeGroupXUser hikeGroupXUser = new HikeGroupXUser(
+                hikeGroupRepository.findById(request.getHikeGroupId()),
+                userRepository.findById(request.getUserId())
+        );
+        try {
+            hikeGroupXUserRepository.save(hikeGroupXUser);
+            return "HikeGroupXUser was created";
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+        return "HikeGroupXUser was not created";
     }
 
 }

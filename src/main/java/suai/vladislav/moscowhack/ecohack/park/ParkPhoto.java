@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -27,5 +28,8 @@ public class ParkPhoto {
     @JoinColumn(name = "parkid")
     private Park park;
 
-    private String url;
+    @Setter
+    @Lob
+    private byte[] data;
+
 }

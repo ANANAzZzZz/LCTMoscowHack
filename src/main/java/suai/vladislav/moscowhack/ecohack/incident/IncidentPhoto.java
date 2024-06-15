@@ -21,5 +21,5 @@ public class IncidentPhoto {
     @JoinColumn(name = "incidentid")
     private Incident incident;
 
-    private String url;
+    private byte[] data;
 }
