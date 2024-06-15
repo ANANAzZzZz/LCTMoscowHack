@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 
 
 @Data
@@ -29,7 +30,6 @@ public class ParkPhoto {
     private Park park;
 
     @Setter
-    @Lob
     private byte[] data;
 
 }
