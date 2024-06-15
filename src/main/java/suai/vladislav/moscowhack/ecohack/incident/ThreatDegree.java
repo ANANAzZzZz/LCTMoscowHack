@@ -20,7 +20,7 @@ public class ThreatDegree {
 
     private String name;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "threatDegree")
     @OneToMany(mappedBy = "threatDegree")
     private List<Incident> incidents;
 }

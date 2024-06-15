@@ -1,5 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class IncidentPhoto {
     @GeneratedValue
     private Integer id;
 
+    @JsonBackReference(value = "incidentPhoto")
     @ManyToOne
     @JoinColumn(name = "incidentid")
     private Incident incident;

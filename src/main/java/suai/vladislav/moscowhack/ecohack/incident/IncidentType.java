@@ -20,7 +20,7 @@ public class IncidentType {
 
     private String name;
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "incidentType")
     @OneToMany(mappedBy = "incidentSource")
     private List<Incident> incidents;
 }
