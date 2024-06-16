@@ -28,8 +28,8 @@ public class IncidentController {
     }
 
     @PostMapping("/addIncident")
-    public ResponseEntity<String> addIncident(@RequestBody IncidentRequest request) {
-        return ResponseEntity.ok(incidentService.saveIncident(request));
+    public Incident addIncident(@RequestBody IncidentRequest request) {
+        return incidentService.saveIncident(request);
     }
 
     @PostMapping("/updateIncidentStatus")
