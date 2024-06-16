@@ -17,7 +17,7 @@ public class SwaggerConfig {
     @Bean
     public Docket swaggerApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .host("http://213.171.10.242/")
+                .host("213.171.10.242")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("suai.vladislav.moscowhack"))
                 .paths(PathSelectors.any())
