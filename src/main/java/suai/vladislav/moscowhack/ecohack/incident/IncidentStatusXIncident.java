@@ -9,11 +9,9 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Optional;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "IncidentStatusXIncident")
+@NoArgsConstructor
 public class IncidentStatusXIncident {
     @Id
     @GeneratedValue
@@ -39,5 +37,13 @@ public class IncidentStatusXIncident {
 
     public IncidentStatus getIncidentStatus() {
         return incidentStatus;
+    }
+
+    public void setIncidentStatus(IncidentStatus incidentStatus) {
+        this.incidentStatus = incidentStatus;
+    }
+
+    public void setIncident(Incident incident) {
+        this.incident = incident;
     }
 }
