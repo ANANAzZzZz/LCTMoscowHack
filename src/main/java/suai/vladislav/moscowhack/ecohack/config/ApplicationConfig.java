@@ -15,9 +15,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import suai.vladislav.moscowhack.ecohack.user.UserRepository;
 
 @Configuration
+@EnableSwagger2
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
@@ -52,5 +60,23 @@ public class ApplicationConfig {
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
         resolver.setMaxUploadSize(52428800);
         return resolver;
+    }
+
+    @Bean
+    public Docket swaggerApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("suai.vladislav.moscowhack"))
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(metaData());
+    }
+
+    private ApiInfo metaData() {
+        return new ApiInfoBuilder()
+                .title("moscowHack")
+                .description("2 недели ада")
+                .version("1.0.0")
+                .build();
     }
 }

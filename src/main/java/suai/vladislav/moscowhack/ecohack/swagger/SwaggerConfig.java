@@ -10,26 +10,26 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
-@EnableSwagger2
+//@Configuration
+//@EnableSwagger2
 public class SwaggerConfig {
-
-    @Bean
-    public Docket swaggerApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("suai.vladislav.moscowhack"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(metaData());
-    }
-
-    private ApiInfo metaData() {
-        return new ApiInfoBuilder()
-                .title("moscowHack")
-                .description("2 недели ада")
-                .version("1.0.0")
-                .build();
-    }
+//
+//    @Bean
+//    public Docket swaggerApi() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("suai.vladislav.moscowhack"))
+//                .paths(PathSelectors.any())
+//                .build()
+//                .apiInfo(metaData());
+//    }
+//
+//    private ApiInfo metaData() {
+//        return new ApiInfoBuilder()
+//                .title("moscowHack")
+//                .description("2 недели ада")
+//                .version("1.0.0")
+//                .build();
+//    }
 }
 

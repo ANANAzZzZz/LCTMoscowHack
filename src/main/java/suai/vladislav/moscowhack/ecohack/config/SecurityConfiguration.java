@@ -26,8 +26,21 @@ public class SecurityConfiguration {
         http
                 .csrf()
                 .disable()
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(new AntPathRequestMatcher("**")).permitAll()
+                .authorizeRequests(requests -> requests
+                        .antMatchers(
+                                "/v2/api-docs",
+                                "/v3/api-docs",
+                                "/v3/api-docs/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/configuration/ui",
+                                "/configuration/security",
+                                "/swagger-ui/**",
+                                "/webjars/**",
+                                "/swagger-ui.html")
+                        .permitAll()
+                        .antMatchers("/api/v1/auth/**")
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement()
@@ -38,4 +51,5 @@ public class SecurityConfiguration {
 
         return http.build();
     }
+
 }
