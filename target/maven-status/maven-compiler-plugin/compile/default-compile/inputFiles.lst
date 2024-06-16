@@ -45,6 +45,7 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\AreaService.
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteInformation.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\requests\IncidentRequest.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteMoving.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\responses\BaseAnthropogenicLoadForMonthResponse.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\RouteInformationRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\RouteTimeRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\ThreadRepository.java
@@ -96,6 +97,7 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\Incident
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\hike\HikeInvite.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\swagger\SwaggerConfig.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\LengthDayLight.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\RouteController.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\Role.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\RouteService.java

@@ -60,6 +60,7 @@ suai\vladislav\moscowhack\requests\HikeRequestOpenGroup.class
 suai\vladislav\moscowhack\requests\HikeGroupRequest$HikeGroupRequestBuilder.class
 suai\vladislav\moscowhack\services\EmployeeService.class
 suai\vladislav\moscowhack\services\RouteService.class
+suai\vladislav\moscowhack\responses\BaseAnthropogenicLoadForMonthResponse$BaseAnthropogenicLoadForMonthResponseBuilder.class
 suai\vladislav\moscowhack\ecohack\park\Park.class
 suai\vladislav\moscowhack\repositories\RouteTimeRepository.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationRequest$AuthenticationRequestBuilder.class
@@ -70,6 +71,7 @@ suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest.class
 suai\vladislav\moscowhack\controllers\RouteController.class
 suai\vladislav\moscowhack\requests\IncidentStatusRequest.class
 suai\vladislav\moscowhack\repositories\AreaRepository.class
+suai\vladislav\moscowhack\responses\BaseAnthropogenicLoadForMonthResponse.class
 suai\vladislav\moscowhack\ecohack\route\RouteRequirements.class
 suai\vladislav\moscowhack\controllers\AreaController.class
 suai\vladislav\moscowhack\services\AnthropogenicLoadService.class
@@ -78,6 +80,7 @@ suai\vladislav\moscowhack\pojo\TracksListByParkItem.class
 suai\vladislav\moscowhack\ecohack\route\RouteDescription.class
 suai\vladislav\moscowhack\ecohack\hike\HikeGroup.class
 suai\vladislav\moscowhack\repositories\RouteInformationRepository.class
+suai\vladislav\moscowhack\ecohack\route\LengthDayLight.class
 suai\vladislav\moscowhack\repositories\IncidentSourceRepository.class
 suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest$EmployeeXIncidentRequestBuilder.class
 suai\vladislav\moscowhack\ecohack\user\Role.class
