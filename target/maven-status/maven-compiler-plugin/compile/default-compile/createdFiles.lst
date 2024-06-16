@@ -3,6 +3,7 @@ suai\vladislav\moscowhack\controllers\ImageController.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.class
 suai\vladislav\moscowhack\ecohack\park\ParkKeySightPhoto.class
 suai\vladislav\moscowhack\repositories\RouteRepository.class
+suai\vladislav\moscowhack\ecohack\swagger\SwaggerConfig.class
 suai\vladislav\moscowhack\responses\HikeGroupResponse.class
 suai\vladislav\moscowhack\ecohack\route\Equipment.class
 suai\vladislav\moscowhack\ecohack\route\DangerZone.class

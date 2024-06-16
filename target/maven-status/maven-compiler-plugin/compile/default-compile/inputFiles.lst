@@ -95,6 +95,7 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\requests\HikeGroupXUs
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\IncidentStatusRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\hike\HikeInvite.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\swagger\SwaggerConfig.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\RouteController.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\Role.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\RouteService.java
