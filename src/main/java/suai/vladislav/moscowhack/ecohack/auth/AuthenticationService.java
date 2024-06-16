@@ -12,10 +12,12 @@ import suai.vladislav.moscowhack.ecohack.config.JwtService;
 import suai.vladislav.moscowhack.ecohack.user.Role;
 import suai.vladislav.moscowhack.ecohack.user.User;
 import suai.vladislav.moscowhack.ecohack.user.UserRepository;
+import org.apache.commons.validator.routines.EmailValidator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +26,16 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public Object register(RegisterRequest request) {
+        if (!validateEmail(request.getEmail())) {
+            return "Invalid email address";
+        }
+        Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
+        if (existingUser.isPresent()) {
+            return "A user with this email already exists";
+        }
         var user = User.builder()
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
@@ -44,6 +54,11 @@ public class AuthenticationService {
                 .email(user.getEmail())
                 .role(user.getRole())
                 .build();
+    }
+
+    public boolean validateEmail(String email) {
+        EmailValidator validator = EmailValidator.getInstance();
+        return validator.isValid(email);
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
