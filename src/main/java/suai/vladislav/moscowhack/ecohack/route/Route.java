@@ -2,6 +2,7 @@ package suai.vladislav.moscowhack.ecohack.route;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import suai.vladislav.moscowhack.ecohack.park.Park;
 
 import javax.persistence.*;
@@ -16,6 +17,10 @@ public class Route {
 
     private String title;
     private String additionalInfo;
+    @Getter
+    private Integer length;
+    @Getter
+    private Integer optimalDistanceBetweenGroups;
 
     private boolean onMap;
     private String color;

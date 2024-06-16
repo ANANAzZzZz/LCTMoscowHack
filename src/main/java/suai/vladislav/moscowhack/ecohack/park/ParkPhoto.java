@@ -29,7 +29,6 @@ public class ParkPhoto {
     private Park park;
 
     @Setter
-    @Lob
     private byte[] data;
 
 }
