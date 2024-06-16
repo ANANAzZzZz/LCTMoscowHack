@@ -19,8 +19,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static suai.vladislav.moscowhack.GraphQLCaller.callGraphQLService;
-
 
 @RequestMapping("/api/v1")
 @RestController
@@ -37,18 +35,4 @@ public class ParkController {
     public Optional<Park> getParkById(@RequestParam int id) {
         return parkService.getParkById(id);
     }
-
-//    @GetMapping("/loadParks")
-//    public void fillParksInDb() {
-//        try {
-//            HttpResponse httpResponse = callGraphQLService("https://green-button.empedokl.com/api/graphql", "{ areasList { borderColor, color, id, name, points} }");
-//            String actualResponse = IOUtils.toString(httpResponse.getEntity().getContent(), StandardCharsets.UTF_8.name());
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            Response parsedResponse = objectMapper.readValue(actualResponse, Response.class);
-//            parkService.savePark(parsedResponse.getData().getAreasList());
-//
-//        } catch (URISyntaxException | IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 }
