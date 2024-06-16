@@ -18,6 +18,7 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\config\JwtAut
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\RouteVisitingConditionsXRouteInformation.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\EmployeeXIncidentRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\RouteRepository.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\AnthropogenicLoadService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\HikeGroupService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\IncidentStatusXIncidentRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\hike\HikeGroupXUser.java
@@ -99,3 +100,4 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\Role.jav
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\RouteService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\requests\IncidentStatusRequest.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\HikeRequestRepository.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\AnthropogenicLoadController.java

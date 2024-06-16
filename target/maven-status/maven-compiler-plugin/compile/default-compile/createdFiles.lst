@@ -53,6 +53,7 @@ suai\vladislav\moscowhack\ecohack\auth\AuthenticationService.class
 suai\vladislav\moscowhack\ecohack\user\UserRepository.class
 suai\vladislav\moscowhack\ecohack\route\Gps.class
 suai\vladislav\moscowhack\ecohack\route\RouteTime.class
+suai\vladislav\moscowhack\controllers\AnthropogenicLoadController.class
 suai\vladislav\moscowhack\ecohack\route\RouteInformation.class
 suai\vladislav\moscowhack\requests\HikeRequestOpenGroup.class
 suai\vladislav\moscowhack\requests\HikeGroupRequest$HikeGroupRequestBuilder.class
@@ -70,6 +71,7 @@ suai\vladislav\moscowhack\requests\IncidentStatusRequest.class
 suai\vladislav\moscowhack\repositories\AreaRepository.class
 suai\vladislav\moscowhack\ecohack\route\RouteRequirements.class
 suai\vladislav\moscowhack\controllers\AreaController.class
+suai\vladislav\moscowhack\services\AnthropogenicLoadService.class
 suai\vladislav\moscowhack\ecohack\route\RouteState.class
 suai\vladislav\moscowhack\pojo\TracksListByParkItem.class
 suai\vladislav\moscowhack\ecohack\route\RouteDescription.class
