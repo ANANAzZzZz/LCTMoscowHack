@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
+import suai.vladislav.moscowhack.ecohack.route.LengthDayLight;
 import suai.vladislav.moscowhack.ecohack.route.Route;
 
 import java.time.Duration;
@@ -21,8 +22,6 @@ public class AnthropogenicLoadService {
             duration = Duration.between(group.getStartTime(), group.getEndTime());
             hours += duration.toHoursPart();
         }
-        System.out.println(hours);
-        System.out.println(hours/groups.size());
         return (float) (hours/groups.size());
     }
 
@@ -31,8 +30,6 @@ public class AnthropogenicLoadService {
         for(HikeGroup group : groups ) {
             allMembersInGroups += group.getMembersCount();
         }
-        System.out.println(allMembersInGroups);
-        System.out.println(allMembersInGroups/groups.size());
         return (float) (allMembersInGroups/groups.size());
     }
 
@@ -41,5 +38,15 @@ public class AnthropogenicLoadService {
                 (route.getLength()/ route.getOptimalDistanceBetweenGroups())
                         * (24/averageRouteTravelTime(hikeGroups))
                         * averageCountMembersInHikeGroups(hikeGroups));
+    }
+
+    public Float BaseAnthropogenicLoadForMonth(Route route,
+                                       List<HikeGroup> hikeGroups,
+                                       LengthDayLight lengthDayLight,
+                                       Integer length) {
+        return (
+                (route.getLength()/ route.getOptimalDistanceBetweenGroups())
+                        * (lengthDayLight.length/averageRouteTravelTime(hikeGroups))
+                        * averageCountMembersInHikeGroups(hikeGroups) * length);
     }
 }
