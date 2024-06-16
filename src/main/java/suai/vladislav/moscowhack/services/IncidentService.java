@@ -32,24 +32,23 @@ public class IncidentService {
         return (ArrayList<Incident>) incidentRepository.findAll();
     }
 
-    public String saveIncident(IncidentRequest incidentRequest) {
-        Incident incident = incidentRepository.save(new Incident(
-                        incidentSourceRepository.findById(incidentRequest.getSourceId()),
-                        threadRepository.findById(incidentRequest.getThreadDegreeId()),
-                        incidentTypeRepository.findById(incidentRequest.getIncidentTypeId()),
-                        incidentRequest.getLatitude(),
-                        incidentRequest.getLongitude(),
-                        incidentRequest.getComment()
-                )
+    public Incident saveIncident(IncidentRequest incidentRequest) {
+        Incident incident = new Incident(
+                incidentSourceRepository.findById(incidentRequest.getSourceId()),
+                threadRepository.findById(incidentRequest.getThreadDegreeId()),
+                incidentTypeRepository.findById(incidentRequest.getIncidentTypeId()),
+                incidentRequest.getLatitude(),
+                incidentRequest.getLongitude(),
+                incidentRequest.getComment()
         );
 
         try {
             incidentRepository.save(incident);
-            return "Incident successfully added";
+            return incident;
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return "Error while saving Incident";
+        return new Incident();
     }
 
     public ArrayList<IncidentType> getIncidentTypes() {

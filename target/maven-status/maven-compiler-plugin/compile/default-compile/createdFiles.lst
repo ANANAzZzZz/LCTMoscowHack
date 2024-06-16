@@ -58,6 +58,7 @@ suai\vladislav\moscowhack\controllers\AnthropogenicLoadController.class
 suai\vladislav\moscowhack\ecohack\route\RouteInformation.class
 suai\vladislav\moscowhack\requests\HikeRequestOpenGroup.class
 suai\vladislav\moscowhack\requests\HikeGroupRequest$HikeGroupRequestBuilder.class
+suai\vladislav\moscowhack\services\EmployeeService.class
 suai\vladislav\moscowhack\services\RouteService.class
 suai\vladislav\moscowhack\ecohack\park\Park.class
 suai\vladislav\moscowhack\repositories\RouteTimeRepository.class
@@ -67,7 +68,6 @@ suai\vladislav\moscowhack\ecohack\route\GpsPoint.class
 suai\vladislav\moscowhack\ecohack\config\JwtService.class
 suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest.class
 suai\vladislav\moscowhack\controllers\RouteController.class
-suai\vladislav\moscowhack\controllers\IndexController.class
 suai\vladislav\moscowhack\requests\IncidentStatusRequest.class
 suai\vladislav\moscowhack\repositories\AreaRepository.class
 suai\vladislav\moscowhack\ecohack\route\RouteRequirements.class
@@ -83,6 +83,7 @@ suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest$EmployeeXIncidentReq
 suai\vladislav\moscowhack\ecohack\user\Role.class
 suai\vladislav\moscowhack\ecohack\incident\ThreatDegree.class
 suai\vladislav\moscowhack\repositories\HikeInviteOpenGroupRepository.class
+suai\vladislav\moscowhack\controllers\EmployeeController.class
 suai\vladislav\moscowhack\requests\IncidentRequest.class
 suai\vladislav\moscowhack\ecohack\auth\RegisterRequest.class
 suai\vladislav\moscowhack\requests\HikeGroupXUserRequest.class
@@ -111,7 +112,6 @@ suai\vladislav\moscowhack\repositories\HikeGroupRepository.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentPhoto.class
 suai\vladislav\moscowhack\pojo\AreasListItem.class
 suai\vladislav\moscowhack\repositories\ParkPhotoRepository.class
-suai\vladislav\moscowhack\GraphQLCaller.class
 suai\vladislav\moscowhack\responses\StartTimeToAndTimeResponse.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentSource.class
 suai\vladislav\moscowhack\services\HikeGroupService.class
