@@ -12,6 +12,8 @@ import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
 import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
 import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
+import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
+import suai.vladislav.moscowhack.ecohack.incident.IncidentStatus;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -97,4 +99,12 @@ public class User implements UserDetails {
     @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<HikeGroupXUser> hikeGroupXUsers;
+
+    @JsonManagedReference(value = "incidentStatus")
+    @OneToMany(mappedBy = "user")
+    private List<IncidentStatus> incidentStatuses;
+
+    @JsonManagedReference(value = "employeeXIncident")
+    @OneToMany(mappedBy = "user")
+    private List<EmployeeXIncident> employeeXIncidents;
 }
