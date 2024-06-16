@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface RouteRepository extends CrudRepository<Route, Long> {
     ArrayList<Route> findAllByIdEquals(Integer id);
     Optional<Route> findById(Integer id);
+    Optional<Route> findByRouteInformationId(int id);
 }

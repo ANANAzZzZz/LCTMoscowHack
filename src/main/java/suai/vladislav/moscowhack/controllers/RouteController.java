@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import suai.vladislav.moscowhack.ecohack.route.Route;
+import suai.vladislav.moscowhack.ecohack.route.RouteInformation;
 import suai.vladislav.moscowhack.pojo.Response;
 import suai.vladislav.moscowhack.services.RouteService;
 
@@ -17,6 +18,7 @@ import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 
 import static suai.vladislav.moscowhack.GraphQLCaller.callGraphQLService;
 
@@ -34,6 +36,11 @@ public class RouteController {
     @GetMapping("/routesByParkId")
     public ArrayList<Route> getParkById(@RequestParam int id) {
         return routeService.getRoutesByParkId(id);
+    }
+
+    @GetMapping("/routeInformationById")
+    public RouteInformation routeInformationById(@RequestParam int id) {
+        return routeService.getRouteInformationById(id);
     }
 
 //    @GetMapping("/loadRoutes")

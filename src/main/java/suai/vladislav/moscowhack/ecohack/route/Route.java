@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import suai.vladislav.moscowhack.ecohack.park.Park;
 
@@ -140,6 +141,7 @@ public class Route {
         this.routeId = areaId;
     }
 
+    @JsonProperty
     @JsonBackReference(value = "routeInformation")
     @ManyToOne
     @JoinColumn(name = "routeInformationId")

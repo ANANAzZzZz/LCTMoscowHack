@@ -39,11 +39,11 @@ public class RouteInformation {
     @JoinColumn(name = "routeEntranceOptionsid")
     private RouteEntranceOptions routeEntranceOptions;
 
-    @JsonManagedReference(value = "routeInformation")
+    @JsonBackReference(value = "routeInformation")
     @OneToMany(mappedBy = "routeInformation")
     private List<Route> Route;
 
-    @JsonManagedReference(value = "routeMoving")
+    @JsonBackReference(value = "routeMoving")
     @OneToMany(mappedBy = "routeInformation")
     private List<RouteMoving>routeMoving;
 
