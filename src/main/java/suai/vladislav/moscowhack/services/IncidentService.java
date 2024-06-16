@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
+import suai.vladislav.moscowhack.ecohack.incident.IncidentType;
+import suai.vladislav.moscowhack.ecohack.incident.ThreatDegree;
 import suai.vladislav.moscowhack.repositories.IncidentRepository;
 import suai.vladislav.moscowhack.repositories.IncidentSourceRepository;
 import suai.vladislav.moscowhack.repositories.IncidentTypeRepository;
@@ -50,4 +52,11 @@ public class IncidentService {
         return "Error while saving Incident";
     }
 
+    public ArrayList<IncidentType> getIncidentTypes() {
+        return (ArrayList<IncidentType>) incidentTypeRepository.findAll();
+    }
+
+    public ArrayList<ThreatDegree> getThreatDegrees() {
+        return (ArrayList<ThreatDegree>) threadRepository.findAll();
+    }
 }

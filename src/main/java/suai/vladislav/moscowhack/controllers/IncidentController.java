@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
+import suai.vladislav.moscowhack.ecohack.incident.IncidentType;
+import suai.vladislav.moscowhack.ecohack.incident.ThreatDegree;
 import suai.vladislav.moscowhack.requests.EmployeeXIncidentRequest;
 import suai.vladislav.moscowhack.requests.IncidentRequest;
 import suai.vladislav.moscowhack.requests.IncidentStatusRequest;
@@ -38,5 +40,15 @@ public class IncidentController {
     @PostMapping("/assignEmployeeToSolveIncident")
     public ResponseEntity<String> assignEmployeeToSolveIncident(@RequestBody EmployeeXIncidentRequest request) {
         return ResponseEntity.ok(incidentStatusService.saveEmployeeXIncident(request));
+    }
+
+    @GetMapping("/incidentTypes")
+    public ArrayList<IncidentType> getIncidentTypes() {
+        return incidentService.getIncidentTypes();
+    }
+
+    @GetMapping("/threatDegrees")
+    public ArrayList<ThreatDegree> getThreatDegrees() {
+        return incidentService.getThreatDegrees();
     }
 }

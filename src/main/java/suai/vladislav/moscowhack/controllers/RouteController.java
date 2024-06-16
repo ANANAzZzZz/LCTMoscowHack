@@ -28,7 +28,6 @@ public class RouteController {
 
     @GetMapping("/routes")
     public ArrayList<Route> getRoutes() {
-
         return routeService.getRoutes();
     }
 

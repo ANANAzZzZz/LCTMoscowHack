@@ -140,7 +140,6 @@ public class Route {
         this.routeId = areaId;
     }
 
-
     @JsonBackReference(value = "routeInformation")
     @ManyToOne
     @JoinColumn(name = "routeInformationId")
@@ -170,4 +169,12 @@ public class Route {
     @ManyToOne
     @JoinColumn(name = "routeDescriptionId")
     private RouteDescription routeDescription;
+
+    public void setRouteInformation(RouteInformation routeInformation) {
+        this.routeInformation = routeInformation;
+    }
+
+    public void setRouteDescription(RouteDescription routeDescription) {
+        this.routeDescription = routeDescription;
+    }
 }
