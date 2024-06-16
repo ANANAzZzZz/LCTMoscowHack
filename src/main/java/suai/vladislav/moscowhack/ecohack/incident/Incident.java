@@ -5,13 +5,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import suai.vladislav.moscowhack.ecohack.park.ParkContacts;
-import suai.vladislav.moscowhack.ecohack.park.ParkPhoto;
-import suai.vladislav.moscowhack.ecohack.route.Route;
-import suai.vladislav.moscowhack.ecohack.user.User;
 
 import javax.persistence.*;
-import java.awt.*;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +15,7 @@ import java.util.Optional;
 @Entity
 @Table(name = "Incident")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Incident {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,10 +54,13 @@ public class Incident {
 
     private String comment;
 
+    private LocalDateTime date;
+
     public Incident(Optional<IncidentSource> byId, Optional<ThreatDegree> byId1, Optional<IncidentType> byId2, float latitude, float longitude, String comment) {
         this.incidentSource = byId.orElse(null);
         this.threatDegree = byId1.orElse(null);
         this.incidentType = byId2.orElse(null);
+        this.date = java.time.LocalDateTime.now();
         this.latitude = latitude;
         this.longitude = longitude;
         this.comment = comment;
