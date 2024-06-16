@@ -30,5 +30,10 @@ public interface HikeGroupRepository extends CrudRepository<HikeGroup, Integer> 
             "AND (start_time <= ?1 OR end_time <= ?2)) ")
     List<HikeGroup> findGroupsSpecifiedWeek(LocalDate startWeekDay, LocalDate currentDay, Integer route_id);
 
+    @Query(nativeQuery=true, value="SELECT * FROM hike_group WHERE route_id = ?3 " +
+            "AND ((start_time >= ?1 OR end_time >= ?2) " +
+            "AND (start_time <= ?1 OR end_time <= ?2)) ")
+    List<HikeGroup> findGroupsSpecifiedMonth(LocalDate startWeekDay, LocalDate currentDay, Integer route_id);
+
     List<HikeGroup> findAllByRouteId(Integer routeId);
 }
