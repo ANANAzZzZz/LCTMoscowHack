@@ -34,12 +34,12 @@ public class ImageController {
     @PostMapping("/uploadParkPhoto")
     public ResponseEntity<String> uploadParkPhoto(
             @RequestParam("image") MultipartFile file,
-            @RequestParam("parkId") Integer parkId
+            @RequestParam("parkPhotoId") Integer parkPhotoId
     ) {
         try {
             ParkPhoto photo = new ParkPhoto();
             photo.setData(file.getBytes());
-            photo.setPark(parkService.getParkById(parkId).orElseThrow());
+            photo.setPark(parkService.getParkById(parkPhotoId).orElseThrow());
             parkPhotoRepository.save(photo);
             return ResponseEntity.ok("Image uploaded successfully");
         } catch (IOException e) {
@@ -50,12 +50,12 @@ public class ImageController {
     @PostMapping("/uploadIncidentPhoto")
     public ResponseEntity<String> uploadIncidentPhoto(
             @RequestParam("image") MultipartFile file,
-            @RequestParam("parkId") Integer incidentId
+            @RequestParam("incidentPhotoId") Integer incidentPhotoId
     ) {
         try {
             IncidentPhoto photo = new IncidentPhoto();
             photo.setData(file.getBytes());
-            photo.setIncident(incidentService.getIncidentById(incidentId).orElseThrow());
+            photo.setIncident(incidentService.getIncidentById(incidentPhotoId).orElseThrow());
             incidentPhotoRepository.save(photo);
             return ResponseEntity.ok("Image uploaded successfully");
         } catch (IOException e) {
