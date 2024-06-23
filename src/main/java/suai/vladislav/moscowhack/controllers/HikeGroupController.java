@@ -1,7 +1,6 @@
 package suai.vladislav.moscowhack.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.jackson.JsonComponentModule;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +9,10 @@ import suai.vladislav.moscowhack.requests.HikeGroupRequest;
 import suai.vladislav.moscowhack.requests.HikeGroupXUserRequest;
 import suai.vladislav.moscowhack.requests.HikeInviteOpenGroup;
 import suai.vladislav.moscowhack.requests.HikeRequestOpenGroup;
-import suai.vladislav.moscowhack.responses.HikeGroupResponse;
 import suai.vladislav.moscowhack.responses.StartTimeToAndTimeResponse;
 import suai.vladislav.moscowhack.services.HikeGroupService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/api/v1")
@@ -31,14 +28,14 @@ public class HikeGroupController {
     }
 
     @PostMapping("/requestHikeGroup")
-    public ResponseEntity<String>  requestHikeGroup (
+    public ResponseEntity<String> requestHikeGroup(
             @RequestBody HikeRequestOpenGroup request
     ) {
         return ResponseEntity.ok(hikeGroupService.requestHikeGroup(request));
     }
 
     @PostMapping("/inviteHikeGroup")
-    public ResponseEntity<String>  inviteHikeGroup (
+    public ResponseEntity<String> inviteHikeGroup(
             @RequestBody HikeInviteOpenGroup request
     ) {
         return ResponseEntity.ok(hikeGroupService.inviteHikeGroup(request));
@@ -51,7 +48,7 @@ public class HikeGroupController {
 
 
     @GetMapping("/allRoutesOnAGivingDateTime")
-    public ResponseEntity<StartTimeToAndTimeResponse> allRoutesOnAGivingDateTime (
+    public ResponseEntity<StartTimeToAndTimeResponse> allRoutesOnAGivingDateTime(
             @RequestParam Integer routeId,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime
     ) {
@@ -72,10 +69,15 @@ public class HikeGroupController {
     }
 
     @PostMapping("/addUserInHikeGroup")
-    public ResponseEntity<String> addUserInHikeGroup (
+    public ResponseEntity<String> addUserInHikeGroup(
             @RequestBody HikeGroupXUserRequest request
     ) {
         return ResponseEntity.ok(hikeGroupService.addUserInHikeGroup(request));
     }
 
+    // :TODO ALL User's hikegroups
+    @GetMapping("/userGroupsById")
+    public List<HikeGroup> routeInformationById(@RequestParam int id) {
+        return hikeGroupService.getUserGroupsById(id);
+    }
 }

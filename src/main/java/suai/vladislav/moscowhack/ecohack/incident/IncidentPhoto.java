@@ -1,7 +1,9 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +15,9 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
 @Table(name = "IncidentPhoto")
+
 public class IncidentPhoto {
     @Id
     @GeneratedValue
@@ -27,6 +29,6 @@ public class IncidentPhoto {
     private Incident incident;
 
     @Setter
-    @Lob
+//    @Lob
     private byte[] data;
 }

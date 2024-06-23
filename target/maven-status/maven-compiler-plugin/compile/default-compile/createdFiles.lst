@@ -1,6 +1,7 @@
 suai\vladislav\moscowhack\ecohack\config\SecurityConfiguration.class
 suai\vladislav\moscowhack\controllers\ImageController.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.class
+suai\vladislav\moscowhack\requests\ImageRequest.class
 suai\vladislav\moscowhack\requests\IncidentCrossUserRequest.class
 suai\vladislav\moscowhack\ecohack\park\ParkKeySightPhoto.class
 suai\vladislav\moscowhack\repositories\RouteRepository.class
@@ -32,6 +33,7 @@ suai\vladislav\moscowhack\ecohack\incident\IncidentType.class
 suai\vladislav\moscowhack\repositories\ParkRepository.class
 suai\vladislav\moscowhack\pojo\Response.class
 suai\vladislav\moscowhack\requests\HikeInviteOpenGroup$HikeInviteOpenGroupBuilder.class
+suai\vladislav\moscowhack\requests\ImageRequest$ImageRequestBuilder.class
 suai\vladislav\moscowhack\test\Test.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationTokenRequest$AuthenticationTokenRequestBuilder.class
 suai\vladislav\moscowhack\ecohack\park\BorderCoords.class
@@ -95,7 +97,6 @@ suai\vladislav\moscowhack\ecohack\incident\IncidentStatusXIncident.class
 suai\vladislav\moscowhack\controllers\ParkController.class
 suai\vladislav\moscowhack\ecohack\route\RouteLength.class
 suai\vladislav\moscowhack\ecohack\route\Place.class
-suai\vladislav\moscowhack\ecohack\hike\HikeGroupXUser.class
 suai\vladislav\moscowhack\ecohack\user\User$UserBuilder.class
 suai\vladislav\moscowhack\requests\IncidentCrossUserRequest$IncidentCrossUserRequestBuilder.class
 suai\vladislav\moscowhack\requests\HikeGroupXUserRequest$HikeGroupXUserRequestBuilder.class
@@ -108,7 +109,6 @@ suai\vladislav\moscowhack\ecohack\park\ParkKeySight.class
 suai\vladislav\moscowhack\services\AreaService.class
 suai\vladislav\moscowhack\requests\HikeRequestOpenGroup$HikeRequestOpenGroupBuilder.class
 suai\vladislav\moscowhack\ecohack\route\ParkingPhoto.class
-suai\vladislav\moscowhack\repositories\HikeGroupXUserRepository.class
 suai\vladislav\moscowhack\responses\HikeGroupResponse$HikeGroupResponseBuilder.class
 suai\vladislav\moscowhack\repositories\HikeGroupRepository.class
 suai\vladislav\moscowhack\ecohack\incident\IncidentPhoto.class

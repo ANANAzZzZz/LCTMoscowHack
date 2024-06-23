@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.hike;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import suai.vladislav.moscowhack.ecohack.route.Route;
@@ -13,7 +14,6 @@ import java.util.Optional;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "HikeGroup")
 public class HikeGroup {
@@ -27,9 +27,18 @@ public class HikeGroup {
     private Boolean isPrivate;
     private String password;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "hikeGroup")
-    private List<HikeGroupXUser> hikeGroupXUsers;
+//    @JsonManagedReference(value = "hikeGroup")
+//    @OneToMany(mappedBy = "hikeGroup")
+//    private List<HikeGroupXUser> hikeGroupXUsers;
+
+    @JsonManagedReference(value = "hikeGroupsCrossUsers")
+    @ManyToMany
+    @JoinTable(
+            name = "HikeGroupCrossUser",
+            joinColumns = @JoinColumn(name = "HikeGroup_id"),
+            inverseJoinColumns = @JoinColumn(name = "User_id")
+    )
+    private List<User> usersInHikeGroups;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "hikeGroup")
@@ -39,10 +48,10 @@ public class HikeGroup {
     @OneToMany(mappedBy = "hikeGroup")
     private List<HikeRequest> hikeRequests;
 
-    @JsonBackReference
+    @JsonBackReference(value = "HikeGroupCreator")
     @ManyToOne
     @JoinColumn(name = "creatorId")
-    private User user;
+    private User creatorUser;
 
     @JsonBackReference
     @ManyToOne
@@ -55,7 +64,27 @@ public class HikeGroup {
         this.endTime = endTime;
         this.isPrivate = aPrivate;
         this.password = password;
-        this.user = byId.orElse(null);
+        this.creatorUser = byId.orElse(null);
         this.route = byId1.orElse(null);
+    }
+
+    public List<User> getUsersInHikeGroups() {
+        return usersInHikeGroups;
+    }
+
+    public List<HikeInvite> getHikeInvites() {
+        return hikeInvites;
+    }
+
+    public List<HikeRequest> getHikeRequests() {
+        return hikeRequests;
+    }
+
+    public User getCreatorUser() {
+        return creatorUser;
+    }
+
+    public Route getRoute() {
+        return route;
     }
 }

@@ -1,7 +1,8 @@
 package suai.vladislav.moscowhack.repositories;
 
-import org.springframework.data.repository.CrudRepository;
-import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
+//public interface HikeGroupXUserRepository extends CrudRepository<HikeGroupXUser, Integer> {
+//    List<HikeGroupXUser> findHikeGroupXUsersByUserId(Integer id);
 
-public interface HikeGroupXUserRepository extends CrudRepository<HikeGroupXUser, Integer> {
-}
+//    @Query(value = "SELECT h FROM HikeGroupXUser h WHERE h.user.id = ?1")
+//    List<HikeGroupXUser> findHikeGroupsById(Integer id);
+//}

@@ -2,7 +2,6 @@ package suai.vladislav.moscowhack.ecohack.user;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,18 +11,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
-import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
 import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
 import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
-import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentStatus;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Data
 @Builder
@@ -95,17 +90,21 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "userCreator")
     private List<HikeRequest> hikeRequestsCreator;
 
-    @OneToMany(mappedBy = "user")
+    @JsonBackReference(value = "hikeGroupsCrossUsers")
+    @ManyToMany(mappedBy = "usersInHikeGroups")
+    private List<HikeGroup> hikeGroupsUsers;
+
+   @JsonManagedReference(value = "HikeGroupCreator")
+    @OneToMany(mappedBy = "creatorUser")
     private List<HikeGroup> hikeGroups;
 
-    @OneToMany(mappedBy = "user")
-    private List<HikeGroupXUser> hikeGroupXUsers;
+//    @JsonManagedReference(value = "hikeGroupUser")
+//    @OneToMany(mappedBy = "user")
+//    private List<HikeGroupXUser> hikeGroupXUsers;
 
     @OneToMany(mappedBy = "user")
     private List<IncidentStatus> incidentStatuses;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<EmployeeXIncident> employeeXIncidents;
     @JsonBackReference(value = "employeeCrossUser")
     @ManyToMany(mappedBy = "user")
     private List<Incident> incidents;

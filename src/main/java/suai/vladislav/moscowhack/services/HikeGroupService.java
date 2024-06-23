@@ -1,14 +1,16 @@
 package suai.vladislav.moscowhack.services;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.hike.HikeGroup;
-import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
 import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
 import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
+import suai.vladislav.moscowhack.ecohack.user.User;
 import suai.vladislav.moscowhack.ecohack.user.UserRepository;
-import suai.vladislav.moscowhack.repositories.*;
+import suai.vladislav.moscowhack.repositories.HikeGroupRepository;
+import suai.vladislav.moscowhack.repositories.HikeInviteOpenGroupRepository;
+import suai.vladislav.moscowhack.repositories.HikeRequestRepository;
+import suai.vladislav.moscowhack.repositories.RouteRepository;
 import suai.vladislav.moscowhack.requests.HikeGroupRequest;
 import suai.vladislav.moscowhack.requests.HikeGroupXUserRequest;
 import suai.vladislav.moscowhack.requests.HikeInviteOpenGroup;
@@ -16,6 +18,8 @@ import suai.vladislav.moscowhack.requests.HikeRequestOpenGroup;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -26,16 +30,14 @@ public class HikeGroupService {
     private final RouteRepository routeRepository;
     private final HikeRequestRepository hikeRequestRepository;
     private final HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository;
-    private final HikeGroupXUserRepository hikeGroupXUserRepository;
 
-    @Autowired
-    public HikeGroupService(HikeGroupRepository hikeGroupRepository, UserRepository userRepository, RouteRepository routeRepository, HikeRequestRepository hikeRequestRepository, HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository, HikeGroupXUserRepository hikeGroupXUserRepository) {
+    //    @Autowired
+    public HikeGroupService(HikeGroupRepository hikeGroupRepository, UserRepository userRepository, RouteRepository routeRepository, HikeRequestRepository hikeRequestRepository, HikeInviteOpenGroupRepository hikeInviteOpenGroupRepository) {
         this.hikeGroupRepository = hikeGroupRepository;
         this.userRepository = userRepository;
         this.routeRepository = routeRepository;
         this.hikeRequestRepository = hikeRequestRepository;
         this.hikeInviteOpenGroupRepository = hikeInviteOpenGroupRepository;
-        this.hikeGroupXUserRepository = hikeGroupXUserRepository;
     }
 
     public String saveHikeGroup(HikeGroupRequest hikeGroupRequest) {
@@ -103,17 +105,25 @@ public class HikeGroupService {
 
 
     public String addUserInHikeGroup(HikeGroupXUserRequest request) {
-        HikeGroupXUser hikeGroupXUser = new HikeGroupXUser(
-                hikeGroupRepository.findById(request.getHikeGroupId()),
-                userRepository.findById(request.getUserId())
-        );
         try {
-            hikeGroupXUserRepository.save(hikeGroupXUser);
-            return "HikeGroupXUser was created";
+            Optional<User> user = userRepository.findById(request.getUserId());
+            Optional<HikeGroup> hikeGroup = hikeGroupRepository.findById(request.getHikeGroupId());
+
+            System.out.println(user.get().getId() + " " + hikeGroup.get().getId());
+
+            hikeGroup.get().getUsersInHikeGroups().add(user.get());
+
+            hikeGroupRepository.save(hikeGroup.get());
+
+            return "HikeGroup saved";
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return "HikeGroupXUser was not created";
+        return "Error assigning employee to Incident";
     }
 
+    public List<HikeGroup> getUserGroupsById(int id) {
+        List<HikeGroup> hikeGroups = hikeGroupRepository.findAll();
+        return hikeGroups.stream().filter(hikeGroup -> hikeGroup.getUsersInHikeGroups().stream().anyMatch(user -> user.getId() == id)).collect(Collectors.toList());
+    }
 }
