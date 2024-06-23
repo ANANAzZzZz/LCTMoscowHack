@@ -77,8 +77,8 @@ public class IncidentService {
         return (ArrayList<ThreatDegree>) threadRepository.findAll();
     }
 
-    public List<Integer> getIncidentPhotoIdByIncidentId(Integer incidentId) {
-        List<Integer> incidentPhotosIds = incidentPhotoRepository.findByIncidentId(incidentId);
+    public List<Integer> getIncidentPhotoIdsByIncidentId(Integer incidentId) {
+        List<Integer> incidentPhotosIds = incidentPhotoRepository.getIncidentPhotoIdsByIncidentId(incidentId);
         return incidentPhotosIds;
     }
 }

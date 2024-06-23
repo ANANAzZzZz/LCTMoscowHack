@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -34,5 +35,9 @@ public class ParkController {
     @GetMapping("/findParkById")
     public Optional<Park> getParkById(@RequestParam int id) {
         return parkService.getParkById(id);
+    }
+    @GetMapping("/getParkPhotoIdsByParkId")
+    public ResponseEntity<List<Integer>> getParkPhotoIdsByParkId(@RequestParam Integer parkId) {
+        return ResponseEntity.ok(parkService.getParkPhotoIdsByParkId(parkId));
     }
 }

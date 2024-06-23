@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import suai.vladislav.moscowhack.ecohack.park.Park;
+import suai.vladislav.moscowhack.repositories.ParkPhotoRepository;
 import suai.vladislav.moscowhack.repositories.ParkRepository;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 public class ParkService {
     private final ParkRepository parkRepository;
+    private final ParkPhotoRepository parkPhotoRepository;
 
     public ArrayList<Park> getAllParks() {
         return (ArrayList<Park>) parkRepository.findAll();
@@ -27,5 +29,10 @@ public class ParkService {
 
     public void savePark(List<Park> park) {
         parkRepository.saveAll(park);
+    }
+
+    public List<Integer> getParkPhotoIdsByParkId(Integer parkId) {
+        List<Integer> parkPhotosIds = parkPhotoRepository.getParkPhotoIdsByParkId(parkId);
+        return parkPhotosIds;
     }
 }

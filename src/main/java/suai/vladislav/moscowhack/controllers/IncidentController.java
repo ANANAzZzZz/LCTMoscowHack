@@ -66,4 +66,10 @@ public class IncidentController {
     public ArrayList<ThreatDegree> getThreatDegrees() {
         return incidentService.getThreatDegrees();
     }
+
+    @GetMapping("/getIncidentPhotoIdsByIncidentId")
+    public ResponseEntity<List<Integer>> getIncidentPhotoIdsByIncidentId(@RequestParam Integer incidentId) {
+        return ResponseEntity.ok(incidentService.getIncidentPhotoIdsByIncidentId(incidentId));
+    }
+
 }
