@@ -2,16 +2,16 @@ package suai.vladislav.moscowhack.services;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
+import suai.vladislav.moscowhack.ecohack.incident.IncidentPhoto;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentType;
 import suai.vladislav.moscowhack.ecohack.incident.ThreatDegree;
-import suai.vladislav.moscowhack.repositories.IncidentRepository;
-import suai.vladislav.moscowhack.repositories.IncidentSourceRepository;
-import suai.vladislav.moscowhack.repositories.IncidentTypeRepository;
-import suai.vladislav.moscowhack.repositories.ThreadRepository;
-import suai.vladislav.moscowhack.requests.IncidentRequest;
+import suai.vladislav.moscowhack.repositories.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -23,6 +23,7 @@ public class IncidentService {
     private final IncidentRepository incidentRepository;
     private final IncidentSourceRepository incidentSourceRepository;
     private final IncidentTypeRepository incidentTypeRepository;
+    private final IncidentPhotoRepository incidentPhotoRepository;
 
     public Optional<Incident> getIncidentById(Integer id) {
         return incidentRepository.findById(id);
@@ -32,23 +33,38 @@ public class IncidentService {
         return (ArrayList<Incident>) incidentRepository.findAll();
     }
 
-    public Incident saveIncident(IncidentRequest incidentRequest) {
+    public Optional<Incident> saveIncident(MultipartFile file,
+                                           Integer incidentTypeId,
+                                           Integer threadDegreeId,
+                                           Integer sourceId,
+                                           String comment,
+                                           Float latitude,
+                                           Float longitude
+    ) {
         Incident incident = new Incident(
-                incidentSourceRepository.findById(incidentRequest.getSourceId()),
-                threadRepository.findById(incidentRequest.getThreadDegreeId()),
-                incidentTypeRepository.findById(incidentRequest.getIncidentTypeId()),
-                incidentRequest.getLatitude(),
-                incidentRequest.getLongitude(),
-                incidentRequest.getComment()
+                incidentSourceRepository.findById(sourceId),
+                threadRepository.findById(threadDegreeId),
+                incidentTypeRepository.findById(incidentTypeId),
+                latitude,
+                longitude,
+                comment
         );
-
         try {
-            incidentRepository.save(incident);
-            return incident;
+            incident = incidentRepository.save(incident);
         } catch (Exception e) {
             log.error(e.getMessage());
         }
-        return new Incident();
+
+        IncidentPhoto photo = new IncidentPhoto();
+        try {
+            photo.setData(file.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        photo.setIncident(incidentRepository.findById(incident.getId()).orElseThrow());
+        incidentPhotoRepository.save(photo);
+
+        return incidentRepository.findById(incident.getId());
     }
 
     public ArrayList<IncidentType> getIncidentTypes() {

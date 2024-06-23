@@ -3,9 +3,11 @@ package suai.vladislav.moscowhack.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentType;
 import suai.vladislav.moscowhack.ecohack.incident.ThreatDegree;
+import suai.vladislav.moscowhack.requests.ImageRequest;
 import suai.vladislav.moscowhack.requests.IncidentCrossUserRequest;
 import suai.vladislav.moscowhack.requests.IncidentRequest;
 import suai.vladislav.moscowhack.requests.IncidentStatusRequest;
@@ -13,6 +15,7 @@ import suai.vladislav.moscowhack.services.IncidentService;
 import suai.vladislav.moscowhack.services.IncidentStatusService;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RequestMapping("/api/v1")
 @RestController
@@ -27,8 +30,20 @@ public class IncidentController {
     }
 
     @PostMapping("/addIncident")
-    public Incident addIncident(@RequestBody IncidentRequest request) {
-        return incidentService.saveIncident(request);
+    public Optional<Incident> addIncident(@RequestParam MultipartFile file,
+                                         @RequestParam Integer incidentTypeId,
+                                         @RequestParam Integer threadDegreeId,
+                                         @RequestParam Integer sourceId,
+                                         @RequestParam String comment,
+                                         @RequestParam Float latitude,
+                                         @RequestParam Float longitude){
+        return incidentService.saveIncident(file,
+                incidentTypeId,
+                threadDegreeId,
+                sourceId,
+                comment,
+                latitude,
+                longitude);
     }
 
     @PostMapping("/updateIncidentStatus")

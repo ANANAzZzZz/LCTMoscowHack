@@ -33,6 +33,7 @@ public class Incident {
     @JoinColumn(name = "incidentTypeId")
     private IncidentType incidentType;
 
+    @JsonManagedReference(value = "incidentPhotos")
     @OneToMany(mappedBy = "incident")
     private List<IncidentPhoto> incidentPhotos;
 
