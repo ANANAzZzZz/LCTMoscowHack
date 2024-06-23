@@ -1,6 +1,8 @@
 package suai.vladislav.moscowhack.ecohack.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +16,7 @@ import suai.vladislav.moscowhack.ecohack.hike.HikeGroupXUser;
 import suai.vladislav.moscowhack.ecohack.hike.HikeInvite;
 import suai.vladislav.moscowhack.ecohack.hike.HikeRequest;
 import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
+import suai.vladislav.moscowhack.ecohack.incident.Incident;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentStatus;
 
 import javax.persistence.*;
@@ -83,31 +86,35 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<HikeInvite> hikeInvites;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "userCreator")
     private List<HikeInvite> hikeInvitesCreator;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<HikeRequest> hikeRequests;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "userCreator")
     private List<HikeRequest> hikeRequestsCreator;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<HikeGroup> hikeGroups;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "user")
     private List<HikeGroupXUser> hikeGroupXUsers;
 
-    @JsonManagedReference(value = "incidentStatus")
     @OneToMany(mappedBy = "user")
     private List<IncidentStatus> incidentStatuses;
 
-    @JsonManagedReference(value = "employeeXIncident")
-    @OneToMany(mappedBy = "user")
-    private List<EmployeeXIncident> employeeXIncidents;
+//    @OneToMany(mappedBy = "user")
+//    private List<EmployeeXIncident> employeeXIncidents;
+    @JsonBackReference(value = "employeeCrossUser")
+    @ManyToMany(mappedBy = "user")
+    private List<Incident> incidents;
+
+    public List<Incident> getIncidents() {
+        return incidents;
+    }
+
+    public void setIncidents(List<Incident> incidents) {
+        this.incidents = incidents;
+    }
 }

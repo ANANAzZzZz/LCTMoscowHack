@@ -1,6 +1,7 @@
 suai\vladislav\moscowhack\ecohack\config\SecurityConfiguration.class
 suai\vladislav\moscowhack\controllers\ImageController.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse.class
+suai\vladislav\moscowhack\requests\IncidentCrossUserRequest.class
 suai\vladislav\moscowhack\ecohack\park\ParkKeySightPhoto.class
 suai\vladislav\moscowhack\repositories\RouteRepository.class
 suai\vladislav\moscowhack\ecohack\swagger\SwaggerConfig.class
@@ -38,7 +39,6 @@ suai\vladislav\moscowhack\ecohack\route\Area.class
 suai\vladislav\moscowhack\pojo\ParkInfo.class
 suai\vladislav\moscowhack\ecohack\route\RouteMoving.class
 suai\vladislav\moscowhack\ecohack\route\RouteVisitingConditionsXRouteInformation.class
-suai\vladislav\moscowhack\repositories\EmployeeXIncidentRepository.class
 suai\vladislav\moscowhack\controllers\HikeGroupController.class
 suai\vladislav\moscowhack\ecohack\auth\AuthenticationResponse$AuthenticationResponseBuilder.class
 suai\vladislav\moscowhack\pojo\Data.class
@@ -67,7 +67,6 @@ suai\vladislav\moscowhack\ecohack\auth\AuthenticationRequest$AuthenticationReque
 suai\vladislav\moscowhack\repositories\IncidentPhotoRepository.class
 suai\vladislav\moscowhack\ecohack\route\GpsPoint.class
 suai\vladislav\moscowhack\ecohack\config\JwtService.class
-suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest.class
 suai\vladislav\moscowhack\controllers\RouteController.class
 suai\vladislav\moscowhack\requests\IncidentStatusRequest.class
 suai\vladislav\moscowhack\repositories\AreaRepository.class
@@ -82,7 +81,6 @@ suai\vladislav\moscowhack\ecohack\hike\HikeGroup.class
 suai\vladislav\moscowhack\repositories\RouteInformationRepository.class
 suai\vladislav\moscowhack\ecohack\route\LengthDayLight.class
 suai\vladislav\moscowhack\repositories\IncidentSourceRepository.class
-suai\vladislav\moscowhack\requests\EmployeeXIncidentRequest$EmployeeXIncidentRequestBuilder.class
 suai\vladislav\moscowhack\ecohack\user\Role.class
 suai\vladislav\moscowhack\ecohack\incident\ThreatDegree.class
 suai\vladislav\moscowhack\repositories\HikeInviteOpenGroupRepository.class
@@ -99,6 +97,7 @@ suai\vladislav\moscowhack\ecohack\route\RouteLength.class
 suai\vladislav\moscowhack\ecohack\route\Place.class
 suai\vladislav\moscowhack\ecohack\hike\HikeGroupXUser.class
 suai\vladislav\moscowhack\ecohack\user\User$UserBuilder.class
+suai\vladislav\moscowhack\requests\IncidentCrossUserRequest$IncidentCrossUserRequestBuilder.class
 suai\vladislav\moscowhack\requests\HikeGroupXUserRequest$HikeGroupXUserRequestBuilder.class
 suai\vladislav\moscowhack\ecohack\park\ParkPhoto.class
 suai\vladislav\moscowhack\requests\HikeGroupRequest.class

@@ -17,7 +17,6 @@ public class IncidentStatusXIncident {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference(value = "incidentStatusXIncident")
     @ManyToOne
     @JoinColumn(name = "incidentStatusId")
     private IncidentStatus incidentStatus;

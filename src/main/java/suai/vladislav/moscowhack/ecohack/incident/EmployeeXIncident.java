@@ -1,7 +1,6 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,17 +15,19 @@ import java.util.Optional;
 @AllArgsConstructor
 @Entity
 @Table(name = "EmployeeXIncident")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class EmployeeXIncident {
     @Id
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference(value = "employeeXIncident")
+    @JsonIgnore
+    @JsonBackReference(value = "employeUser")
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private User user;
 
-    @JsonBackReference(value = "employeeXIncidents")
+    @JsonBackReference(value = "employeeXIncidentss")
     @ManyToOne
     @JoinColumn(name = "incidentId")
     private Incident incident;
@@ -34,5 +35,31 @@ public class EmployeeXIncident {
     public EmployeeXIncident(Optional<User> user, Optional<Incident> incident) {
         this.user = user.orElse(null);
         this.incident = incident.orElse(null);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonProperty("employeeId")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @JsonProperty("incidentId")
+    public Incident getIncident() {
+        return incident;
+    }
+
+    public void setIncident(Incident incident) {
+        this.incident = incident;
     }
 }

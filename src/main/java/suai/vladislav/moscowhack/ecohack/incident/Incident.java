@@ -1,12 +1,10 @@
 package suai.vladislav.moscowhack.ecohack.incident;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import suai.vladislav.moscowhack.ecohack.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,65 +16,53 @@ import java.util.Optional;
 @Table(name = "Incident")
 @NoArgsConstructor
 public class Incident {
-    public IncidentType getIncidentType() {
-        return incidentType;
-    }
-
-    public void setIncidentType(IncidentType incidentType) {
-        this.incidentType = incidentType;
-    }
-
-    public ThreatDegree getThreatDegree() {
-        return threatDegree;
-    }
-
-    public void setThreatDegree(ThreatDegree threatDegree) {
-        this.threatDegree = threatDegree;
-    }
-
-    public IncidentSource getIncidentSource() {
-        return incidentSource;
-    }
-
-    public void setIncidentSource(IncidentSource incidentSource) {
-        this.incidentSource = incidentSource;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @JsonProperty
     @JsonBackReference(value = "incidentSource")
     @ManyToOne
     @JoinColumn(name = "sourceId")
     private IncidentSource incidentSource;
 
-    @JsonProperty
-    @JsonBackReference(value = "threatDegree")
     @ManyToOne
     @JoinColumn(name = "threatDegreeId")
     private ThreatDegree threatDegree;
 
-    @JsonProperty
-    @JsonBackReference(value = "incidentType")
     @ManyToOne
     @JoinColumn(name = "incidentTypeId")
     private IncidentType incidentType;
 
-    @JsonManagedReference(value = "incidentPhoto")
     @OneToMany(mappedBy = "incident")
     private List<IncidentPhoto> incidentPhotos;
 
-    @JsonProperty
-    @JsonManagedReference(value = "employeeXIncidents")
-    @OneToMany(mappedBy = "user")
-    private List<EmployeeXIncident> employeeXIncidents;
+//    @JsonManagedReference(value = "employeeXIncidentss")
+//    @OneToMany(mappedBy = "incident")
+//    private List<EmployeeXIncident> employeeXIncidents;
 
-    @JsonProperty
-    @JsonManagedReference(value = "incidentStatusXIncident")
-    @OneToMany(mappedBy = "incidentStatus")
-    private List<IncidentStatusXIncident> incidentStatusXIncidents;
+    @JsonManagedReference(value = "incidentCrossStatus")
+    @ManyToMany
+    @JoinTable(
+            name = "IncidentCrossStatus",
+            joinColumns = @JoinColumn(name = "Incident_id"),
+            inverseJoinColumns = @JoinColumn(name = "IncidentStatus_id")
+    )
+    private List<IncidentStatus> incidentStatus;
+
+    @JsonIgnore
+    @JsonManagedReference(value = "employeeCrossUser")
+    @ManyToMany
+    @JoinTable(
+            name = "IncidentCrossUser",
+            joinColumns = @JoinColumn(name = "Incident_id"),
+            inverseJoinColumns = @JoinColumn(name = "User_id")
+    )
+    private List<User> user;
+
+
+//    @JsonManagedReference(value = "incidentStatusXIncident")
+//    @OneToMany(mappedBy = "incidentStatus")
+//    private List<IncidentStatusXIncident> incidentStatusXIncidents;
 
     private float latitude;
 
@@ -104,19 +90,27 @@ public class Incident {
         this.incidentPhotos = incidentPhotos;
     }
 
-    public List<EmployeeXIncident> getEmployeeXIncidents() {
-        return employeeXIncidents;
+//    public List<EmployeeXIncident> getEmployeeXIncidents() {
+//        return employeeXIncidents;
+//    }
+//
+//    public void setEmployeeXIncidents(List<EmployeeXIncident> employeeXIncidents) {
+//        this.employeeXIncidents = employeeXIncidents;
+//    }
+
+//    public List<IncidentStatusXIncident> getIncidentStatusXIncidents() {
+//        return incidentStatusXIncidents;
+//    }
+//
+//    public void setIncidentStatusXIncidents(List<IncidentStatusXIncident> incidentStatusXIncidents) {
+//        this.incidentStatusXIncidents = incidentStatusXIncidents;
+//    }
+
+    public List<User> getEmployeesCross() {
+        return user;
     }
 
-    public void setEmployeeXIncidents(List<EmployeeXIncident> employeeXIncidents) {
-        this.employeeXIncidents = employeeXIncidents;
-    }
-
-    public List<IncidentStatusXIncident> getIncidentStatusXIncidents() {
-        return incidentStatusXIncidents;
-    }
-
-    public void setIncidentStatusXIncidents(List<IncidentStatusXIncident> incidentStatusXIncidents) {
-        this.incidentStatusXIncidents = incidentStatusXIncidents;
+    public void setEmployeesCross(List<User> employeesCross) {
+        this.user = employeesCross;
     }
 }

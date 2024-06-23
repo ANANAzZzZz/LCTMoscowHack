@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: suai.vladislav.moscowhack.MoscowHackApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.177 s - in suai.vladislav.moscowhack.MoscowHackApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.485 s - in suai.vladislav.moscowhack.MoscowHackApplicationTests

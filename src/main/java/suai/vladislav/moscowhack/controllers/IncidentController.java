@@ -3,11 +3,10 @@ package suai.vladislav.moscowhack.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
 import suai.vladislav.moscowhack.ecohack.incident.Incident;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentType;
 import suai.vladislav.moscowhack.ecohack.incident.ThreatDegree;
-import suai.vladislav.moscowhack.requests.EmployeeXIncidentRequest;
+import suai.vladislav.moscowhack.requests.IncidentCrossUserRequest;
 import suai.vladislav.moscowhack.requests.IncidentRequest;
 import suai.vladislav.moscowhack.requests.IncidentStatusRequest;
 import suai.vladislav.moscowhack.services.IncidentService;
@@ -38,7 +37,7 @@ public class IncidentController {
     }
 
     @PostMapping("/assignEmployeeToSolveIncident")
-    public ResponseEntity<String> assignEmployeeToSolveIncident(@RequestBody EmployeeXIncidentRequest request) {
+    public ResponseEntity<String> assignEmployeeToSolveIncident(@RequestBody IncidentCrossUserRequest request) {
         return ResponseEntity.ok(incidentStatusService.saveEmployeeXIncident(request));
     }
 

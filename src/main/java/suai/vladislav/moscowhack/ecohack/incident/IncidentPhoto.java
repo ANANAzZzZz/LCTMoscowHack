@@ -18,7 +18,6 @@ public class IncidentPhoto {
     @GeneratedValue
     private Integer id;
 
-    @JsonBackReference(value = "incidentPhoto")
     @ManyToOne
     @JoinColumn(name = "incidentid")
     private Incident incident;

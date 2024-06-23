@@ -34,9 +34,13 @@ public class IncidentStatus {
     @JoinColumn(name = "employeeId")
     private User user;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "incident")
-    private List<IncidentStatusXIncident> incidentStatusXIncidents;
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "incident")
+//    private List<IncidentStatusXIncident> incidentStatusXIncidents;
+
+    @JsonBackReference(value = "incidentCrossStatus")
+    @ManyToMany(mappedBy = "incidentStatus")
+    List<Incident> incidents;
 
     public IncidentStatus(String title, String description, Optional<User> byId) {
         this.title = title;

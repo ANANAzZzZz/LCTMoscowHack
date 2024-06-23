@@ -3,18 +3,18 @@ package suai.vladislav.moscowhack.services;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import suai.vladislav.moscowhack.ecohack.incident.EmployeeXIncident;
+import suai.vladislav.moscowhack.ecohack.incident.Incident;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentStatus;
 import suai.vladislav.moscowhack.ecohack.incident.IncidentStatusXIncident;
+import suai.vladislav.moscowhack.ecohack.user.User;
 import suai.vladislav.moscowhack.ecohack.user.UserRepository;
-import suai.vladislav.moscowhack.repositories.EmployeeXIncidentRepository;
 import suai.vladislav.moscowhack.repositories.IncidentRepository;
 import suai.vladislav.moscowhack.repositories.IncidentStatusRepository;
 import suai.vladislav.moscowhack.repositories.IncidentStatusXIncidentRepository;
-import suai.vladislav.moscowhack.requests.EmployeeXIncidentRequest;
+import suai.vladislav.moscowhack.requests.IncidentCrossUserRequest;
 import suai.vladislav.moscowhack.requests.IncidentStatusRequest;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -24,7 +24,6 @@ public class IncidentStatusService {
     private final UserRepository userRepository;
     private final IncidentStatusXIncidentRepository incidentStatusXIncidentRepository;
     private final IncidentRepository incidentRepository;
-    private final EmployeeXIncidentRepository employeeXIncidentRepository;
 
     public String saveIncidentStatus(IncidentStatusRequest incidentStatusRequest) {
         IncidentStatus incidentStatus = (new IncidentStatus(
@@ -54,13 +53,20 @@ public class IncidentStatusService {
         return incidentStatus.getId();
     }
 
-    public String saveEmployeeXIncident(EmployeeXIncidentRequest request) {
-        EmployeeXIncident employeeXIncident = new EmployeeXIncident(
-                userRepository.findById(request.getEmployeeId()),
-                incidentRepository.findById(request.getIncidentId())
-        );
+    public String saveEmployeeXIncident(IncidentCrossUserRequest request) {
+//        IncidentCrossUser incidentCrossUser = new IncidentCrossUser(
+//                userRepository.findById(request.getEmployeeId()),
+//                incidentRepository.findById(request.getIncidentId())
+//        );
         try {
-            employeeXIncidentRepository.save(employeeXIncident);
+            Optional<User> user = userRepository.findById(request.getEmployeeId());
+            Optional<Incident> incident = incidentRepository.findById( request.getIncidentId());
+
+            incident.get().getUser().add(user.get());
+
+            incidentRepository.save(incident.get());
+
+//            System.out.println(userRepository.save(user.get()));
 
             return "Employee successfully assigned to Incident";
         } catch (Exception e) {
