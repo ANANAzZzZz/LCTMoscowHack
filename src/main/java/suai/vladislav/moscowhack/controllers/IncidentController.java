@@ -15,6 +15,7 @@ import suai.vladislav.moscowhack.services.IncidentService;
 import suai.vladislav.moscowhack.services.IncidentStatusService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/api/v1")
@@ -30,13 +31,13 @@ public class IncidentController {
     }
 
     @PostMapping("/addIncident")
-    public Optional<Incident> addIncident(@RequestParam MultipartFile file,
-                                         @RequestParam Integer incidentTypeId,
-                                         @RequestParam Integer threadDegreeId,
-                                         @RequestParam Integer sourceId,
-                                         @RequestParam String comment,
-                                         @RequestParam Float latitude,
-                                         @RequestParam Float longitude){
+    public Optional<Incident> addIncident(@RequestParam List<MultipartFile> file,
+                                          @RequestParam Integer incidentTypeId,
+                                          @RequestParam Integer threadDegreeId,
+                                          @RequestParam Integer sourceId,
+                                          @RequestParam String comment,
+                                          @RequestParam Float latitude,
+                                          @RequestParam Float longitude){
         return incidentService.saveIncident(file,
                 incidentTypeId,
                 threadDegreeId,

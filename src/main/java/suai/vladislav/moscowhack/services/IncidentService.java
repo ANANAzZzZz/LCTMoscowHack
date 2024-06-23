@@ -34,7 +34,7 @@ public class IncidentService {
         return (ArrayList<Incident>) incidentRepository.findAll();
     }
 
-    public Optional<Incident> saveIncident(MultipartFile file,
+    public Optional<Incident> saveIncident(List<MultipartFile> file,
                                            Integer incidentTypeId,
                                            Integer threadDegreeId,
                                            Integer sourceId,
@@ -56,16 +56,16 @@ public class IncidentService {
             log.error(e.getMessage());
         }
 
-        IncidentPhoto photo = new IncidentPhoto();
-        try {
-            photo.setData(file.getBytes());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (MultipartFile multipartFile : file) {
+            IncidentPhoto photo = new IncidentPhoto();
+            try {
+                photo.setData(multipartFile.getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            photo.setIncident(incidentRepository.findById(incident.getId()).orElseThrow());
+            incidentPhotoRepository.save(photo);
         }
-        photo.setIncident(incidentRepository.findById(incident.getId()).orElseThrow());
-        incidentPhotoRepository.save(photo);
-
-        System.out.println(incidentRepository.findById(incident.getId()).get().getIncidentPhotos());
         return incidentRepository.findById(incident.getId());
     }
 
