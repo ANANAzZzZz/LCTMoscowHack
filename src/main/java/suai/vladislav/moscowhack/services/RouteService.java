@@ -32,7 +32,7 @@ public class RouteService {
         routeRepository.saveAll(routes);
     }
 
-    public RouteInformation getRouteInformationById(Integer id) {
-        return routeRepository.findById(id).get().getRouteInformation();
-    }
+//    public RouteInformation getRouteInformationById(Integer id) {
+//        return routeRepository.findById(id).get().getRouteInformation();
+//    }
 }

@@ -20,17 +20,13 @@ public class RouteDescription {
 
     private String description;
 
-    @JsonManagedReference(value = "routeDescription")
-    @OneToMany(mappedBy = "routeDescription")
-    private List<Route> routes;
-
     @JsonManagedReference(value = "keySights")
     @OneToMany(mappedBy = "routeDescription")
     private List<KeySight> keySights;
 
-    @JsonManagedReference(value = "Parking")
-    @OneToMany(mappedBy = "routeDescription")
-    private List<Parking> parkings;
+//    @JsonManagedReference(value = "Parking")
+//    @OneToMany(mappedBy = "routeDescription")
+//    private List<Parking> parkings;
 
     @JsonManagedReference(value = "gpsDesc")
     @OneToMany(mappedBy = "routeDescription")
