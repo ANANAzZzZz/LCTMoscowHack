@@ -20,7 +20,6 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\RouteRep
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\AnthropogenicLoadService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\HikeGroupService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\IncidentStatusXIncidentRepository.java
-D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\hike\HikeGroupXUser.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\HikeGroupXUserRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\Gps.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\route\Parking.java
@@ -102,5 +101,6 @@ D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\RouteCont
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\ecohack\user\Role.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\services\RouteService.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\requests\IncidentStatusRequest.java
+D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\requests\ImageRequest.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\repositories\HikeRequestRepository.java
 D:\Code\MoscowHack\src\main\java\suai\vladislav\moscowhack\controllers\AnthropogenicLoadController.java

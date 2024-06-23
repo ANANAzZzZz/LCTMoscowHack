@@ -1,8 +1,6 @@
 package suai.vladislav.moscowhack.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,9 +15,7 @@ import suai.vladislav.moscowhack.services.IncidentService;
 import suai.vladislav.moscowhack.services.ParkService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/api/v1")
@@ -99,15 +95,5 @@ public class ImageController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
-
-    @GetMapping("/getIncidentPhotoIdByIncidentId")
-    public ResponseEntity<List<Integer>> getIncidentPhotoIdByIncidentId(@RequestParam Integer incidentId) {
-        return ResponseEntity.ok(incidentService.getIncidentPhotoIdByIncidentId(incidentId));
-    }
-
-    @GetMapping("/getParkPhotoIdByParkId")
-    public ResponseEntity<List<Integer>> getParkPhotoIdByParkId(@RequestParam Integer parkId) {
-        return ResponseEntity.ok(parkService.getParkPhotoIdByParkId(parkId));
     }
 }

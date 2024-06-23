@@ -54,10 +54,6 @@ public class IncidentStatusService {
     }
 
     public String saveEmployeeXIncident(IncidentCrossUserRequest request) {
-//        IncidentCrossUser incidentCrossUser = new IncidentCrossUser(
-//                userRepository.findById(request.getEmployeeId()),
-//                incidentRepository.findById(request.getIncidentId())
-//        );
         try {
             Optional<User> user = userRepository.findById(request.getEmployeeId());
             Optional<Incident> incident = incidentRepository.findById( request.getIncidentId());
