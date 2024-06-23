@@ -114,4 +114,10 @@ public class Incident {
     public void setEmployeesCross(List<User> employeesCross) {
         this.user = employeesCross;
     }
+
+    @Override
+    public String toString() {
+
+        return "";
+    }
 }

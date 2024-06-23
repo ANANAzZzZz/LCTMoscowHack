@@ -13,6 +13,7 @@ import suai.vladislav.moscowhack.repositories.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -64,6 +65,7 @@ public class IncidentService {
         photo.setIncident(incidentRepository.findById(incident.getId()).orElseThrow());
         incidentPhotoRepository.save(photo);
 
+        System.out.println(incidentRepository.findById(incident.getId()).get().getIncidentPhotos());
         return incidentRepository.findById(incident.getId());
     }
 
@@ -73,5 +75,10 @@ public class IncidentService {
 
     public ArrayList<ThreatDegree> getThreatDegrees() {
         return (ArrayList<ThreatDegree>) threadRepository.findAll();
+    }
+
+    public List<Integer> getIncidentPhotoIdByIncidentId(Integer incidentId) {
+        List<Integer> incidentPhotosIds = incidentPhotoRepository.findByIncidentId(incidentId);
+        return incidentPhotosIds;
     }
 }

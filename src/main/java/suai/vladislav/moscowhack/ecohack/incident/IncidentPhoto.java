@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
 @Table(name = "IncidentPhoto")
 public class IncidentPhoto {

@@ -16,7 +16,6 @@ import javax.transaction.Transactional;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIgnoreProperties(ignoreUnknown=true)
 @Table(name = "ParkPhoto")
 public class ParkPhoto {
 
@@ -30,6 +29,7 @@ public class ParkPhoto {
     private Park park;
 
     @Setter
+    @Lob
     private byte[] data;
 
 }
