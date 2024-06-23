@@ -28,12 +28,12 @@ public class Parking {
 
     private float longitude;
 
-    @JsonBackReference(value = "Parking")
+    @JsonBackReference(value = "RouteParking")
     @ManyToOne
-    @JoinColumn(name = "routeDescriptionId")
-    private RouteDescription routeDescription;
+    @JoinColumn(name = "routeId")
+    private Route route;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "parking")
-    private List<ParkingPhoto> parkingPhotos;
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "parking")
+//    private List<Parking> parkingPhotos;
 }

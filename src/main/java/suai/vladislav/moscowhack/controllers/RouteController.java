@@ -28,8 +28,8 @@ public class RouteController {
         return routeService.getRoutesByParkId(id);
     }
 
-    @GetMapping("/routeInformationById")
-    public RouteInformation routeInformationById(@RequestParam int id) {
-        return routeService.getRouteInformationById(id);
-    }
+//    @GetMapping("/routeInformationById")
+//    public RouteInformation routeInformationById(@RequestParam int id) {
+//        return routeService.getRouteInformationById(id);
+//    }
 }

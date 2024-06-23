@@ -5,8 +5,10 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import suai.vladislav.moscowhack.ecohack.park.Park;
+import suai.vladislav.moscowhack.ecohack.park.ParkPhoto;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Route")
@@ -112,10 +114,6 @@ public class Route {
         this.description = description;
     }
 
-    public RouteDescription getRouteDescription() {
-        return routeDescription;
-    }
-
     public RouteSecurity getRouteSecurity() {
         return routeSecurity;
     }
@@ -132,9 +130,6 @@ public class Route {
 //        return park;
 //    }
 
-    public RouteInformation getRouteInformation() {
-        return routeInformation;
-    }
 
     @JsonProperty("routeId")
     public String getRouteId() {
@@ -146,11 +141,9 @@ public class Route {
         this.routeId = areaId;
     }
 
-    @JsonProperty
-    @JsonBackReference(value = "routeInformation")
-    @ManyToOne
-    @JoinColumn(name = "routeInformationId")
-    private RouteInformation routeInformation;
+    @JsonManagedReference(value = "routeInformation")
+    @OneToMany(mappedBy = "route")
+    private List<RouteInformation> routeInformation;
 
     @JsonBackReference(value = "park")
     @ManyToOne
@@ -172,16 +165,24 @@ public class Route {
     @JoinColumn(name = "routeSecurityId")
     private RouteSecurity routeSecurity;
 
-    @JsonBackReference(value = "routeDescription")
-    @ManyToOne
-    @JoinColumn(name = "routeDescriptionId")
-    private RouteDescription routeDescription;
+    @JsonManagedReference(value = "RouteParking")
+    @OneToMany(mappedBy = "route")
+    private List<Parking> parking;
 
-    public void setRouteInformation(RouteInformation routeInformation) {
-        this.routeInformation = routeInformation;
+
+    public List<Parking> getParking() {
+        return parking;
     }
 
-    public void setRouteDescription(RouteDescription routeDescription) {
-        this.routeDescription = routeDescription;
+    public void setParking(List<Parking> parking) {
+        this.parking = parking;
+    }
+
+    public List<RouteInformation> getRouteInformation() {
+        return routeInformation;
+    }
+
+    public void setRouteInformation(List<RouteInformation> routeInformation) {
+        this.routeInformation = routeInformation;
     }
 }

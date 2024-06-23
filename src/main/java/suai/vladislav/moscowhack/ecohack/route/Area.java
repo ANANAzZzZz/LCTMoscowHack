@@ -1,6 +1,7 @@
 package suai.vladislav.moscowhack.ecohack.route;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import suai.vladislav.moscowhack.ecohack.park.ParkContacts;
 
 import javax.persistence.*;
 
@@ -26,12 +27,24 @@ public class Area {
     private String cuts;
     private String ticketName;
 
+    @ManyToOne
+    @JoinColumn(name = "contactsId")
+    private ParkContacts parkContacts;
+
     @JsonProperty("id")
     private String areaId;
 
     @JsonProperty("id")
     public String getAreaId() {
         return areaId;
+    }
+
+    public ParkContacts getParkContacts() {
+        return parkContacts;
+    }
+
+    public void setParkContacts(ParkContacts parkContacts) {
+        this.parkContacts = parkContacts;
     }
 
     public String getTicketName() {
