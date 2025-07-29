@@ -34,12 +34,64 @@ Swagger: http://localhost:8080/swagger-ui/index.html
 
 ## Итоги
 &ensp; По итогам хакатона наша команда заняла 2 место с отставанием в 0.6 балла от первого. 
-- Статью об этом можно увидеть [здесь](https://new.guap.ru/pubs/22553) 
-- Презентацию нашего решения можно увидеть [здесь](https://github.com/ANANAzZzZz/LCTMoscowHack/blob/master/Presentation.pdf)
-- Диплом призера можно увидеть [здесь](https://github.com/ANANAzZzZz/LCTMoscowHack/blob/master/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%20II%20%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D0%B8%2C%20%D0%A1%D1%8B%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BD%D0%B5%D0%B2%D0%92%D1%81%2C%20%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD%20%D0%9B%D0%A6%D0%A2.pdf_page-0001.jpg)
+- [Статья от ГУАП](https://new.guap.ru/pubs/22553) 
+- [Презентация нашего решения](https://github.com/ANANAzZzZz/LCTMoscowHack/blob/master/Presentation.pdf)
+- [Диплом призера](https://github.com/ANANAzZzZz/LCTMoscowHack/blob/master/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%20II%20%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D0%B8%2C%20%D0%A1%D1%8B%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%BD%D0%B5%D0%B2%D0%92%D1%81%2C%20%D0%A5%D0%B0%D0%BA%D0%B0%D1%82%D0%BE%D0%BD%20%D0%9B%D0%A6%D0%A2.pdf_page-0001.jpg)
 
 ---
+<p align="center">
+  <img src="/screens/Presentation_page-0001.jpg" />
+</p>
 
+<p align="center">
+  <img src="/screens/Presentation_page-0003.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0004.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0005.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0006.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0007.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0008.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0009.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0010.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0011.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0012.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0013.jpg" />
+</p>
+
+<p align="center">
+  <img src="/screens/Presentation_page-0014.jpg" />
+</p>
+
+---
 ## Case  
 ### You can review the case [here](https://github.com/ANANAzZzZz/LCTMoscowHack/blob/master/Case.pdf)  
 
