@@ -21,7 +21,8 @@
 * Фреймворк: Spring Boot 
 * Spring Data JPA для работы с базой данных
 * Spring Web для создания RESTful сервисов
-* База данных: PostgreSQL, развернутая на сервисе Timeweb Cloud 
+* База данных: PostgreSQL, развернутая на сервисе Timeweb Cloud
+* Развертывание: Nginx, Docker 
 * Облачный хостинг: Timeweb Cloud
 ## Библиотеки и инструменты:
 * JSON Web Tokens (JWT) для безопасной передачи и проверки токенов аутентификации
@@ -107,7 +108,8 @@ The system includes functionality for authorization and registration using JWT t
 * Framework: Spring Boot  
 * Spring Data JPA for working with the database  
 * Spring Web for creating RESTful services  
-* Database: PostgreSQL, deployed on Timeweb Cloud  
+* Database: PostgreSQL, deployed on Timeweb Cloud
+* Deploy: Nginx, Docker
 * Cloud Hosting: Timeweb Cloud  
 
 ## Libraries and Tools  
